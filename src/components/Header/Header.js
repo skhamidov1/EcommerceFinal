@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const header = () => {
+const header = (props) => {
 
     return (
         <header>
@@ -13,6 +13,10 @@ const header = () => {
                     <li className="nav__list-item"><Link to="/products">Inventory</Link></li>
                     <li className="nav__list-item"><Link to="/contact">Contact</Link></li>
                 </ul>
+                <img onClick={props.closeMobileNav}
+                src="../../../static/img/hamburger.svg" 
+                className="nav__hamburger" alt="Navigation"
+                right={"-100vw"}/>
             </nav>
         </header>
     )

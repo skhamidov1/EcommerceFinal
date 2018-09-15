@@ -5,7 +5,11 @@
   top: 0;
   width: 100%;
   z-index: 3;
-
+  display: flex;
+  @media (max-width: 400px) {
+    justify-content: flex-end;
+    padding-right: 10px;
+  }
   &__unord-list {
     display: flex;
     margin: 0;
@@ -13,6 +17,19 @@
     height: inherit;
     align-items: center;
     justify-content: flex-end;
+    width: 100%;
+    @media (max-width: 400px) {
+      display: none;
+      width: calc(100% - 60px);
+    }
+  }
+  &__hamburger {
+    display: none;
+    width: 50px;
+    cursor: pointer;
+    @media (max-width: 400px) {
+      display: block;
+    }
   }
   &__list-item {
     margin-left: 30px;

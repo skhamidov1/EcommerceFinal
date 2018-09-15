@@ -5,6 +5,9 @@
   justify-content: center;
   border-bottom: 1px solid lightgray;
   margin: 0 auto;
+  @media (max-width: 400px) {
+    padding: 0 10px;
+  }
   > h2 {
     margin: 10px 0;
     text-align: center;
@@ -15,6 +18,10 @@
     width: 1000px;
     margin: 10px auto;
     font: 400 20px "Quicksand";
+    @media (max-width: 400px) {
+      width: 380px;
+      font-size: 18px;
+    }
   }
 }
 .home-service-hero {
@@ -27,12 +34,15 @@
   align-items: flex-start;
   justify-content: center;
   position: relative;
+  @media (max-width: 400px) {
+    height: 400px;
+  }
 
   &__overlay {
     position: absolute;
     top: 0;
     background: rgba(0, 0, 0, 0.5);
-    height: 525px;
+    height: 400px;
     width: 100%;
     z-index: 1;
   }
@@ -41,17 +51,30 @@
     margin-left: 125px;
     width: 600px;
     z-index: 2;
+    @media (max-width: 400px) {
+      margin: 0;
+      padding: 20px;
+      width: 400px;
+    }
 
     > h2 {
       margin: 0;
       width: 600px;
       font: 400 35px "Quicksand";
       color: white;
+      @media (max-width: 400px) {
+        font-size: 30px;
+        width: 380px;
+      }
+      
     }
     > p {
       margin: 80px 0;
       font: 400 20px "Quicksand";
       color: white;
+      @media (max-width: 400px) {
+        margin: 40px 0;
+      }
     }
     > a {
       font: 400 16px "Quicksand";
@@ -83,6 +106,9 @@
     font: 400 40px "Quicksand";
     text-transform: uppercase;
     margin: 0 0 20px;
+    @media (max-width: 400px) {
+      text-align: center;
+    }
   }
   > a {
     font: 400 16px "Quicksand";

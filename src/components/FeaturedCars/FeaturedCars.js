@@ -4,11 +4,10 @@ class featuredCars extends Component {
   state = {
     i: 0,
     images: [
-      "../../../static/img/s550.jpg",
-      "../../../static/img/r8.jpg",
       "../../../static/img/ferrari2.jpg",
       "../../../static/img/McLaren.jpg",
-      
+      "../../../static/img/zl1.jpg",
+      "../../../static/img/r8.jpg",
     ],
     currentImageURLs: [],
 
