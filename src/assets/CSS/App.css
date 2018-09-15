@@ -721,16 +721,21 @@ table {
     @media (max-width: 400px) {
       .footer__unord-list {
         flex-wrap: wrap; } }
-  @media (max-width: 400px) {
-    .footer__list-item {
-      width: 150px;
-      text-align: center; } }
-  .footer__list-item > a {
-    text-decoration: none;
-    color: white;
-    font: 400 18px "Quicksand";
-    text-transform: uppercase;
-    letter-spacing: 1px; }
+  .footer__list-item {
+    margin-left: 50px;
+    padding-right: 50px; }
+    @media (max-width: 400px) {
+      .footer__list-item {
+        width: 150px;
+        text-align: center;
+        margin: 0;
+        padding: 0; } }
+    .footer__list-item > a {
+      text-decoration: none;
+      color: white;
+      font: 400 18px "Quicksand";
+      text-transform: uppercase;
+      letter-spacing: 1px; }
 
 .feat-cars-wrap {
   width: 100%;
