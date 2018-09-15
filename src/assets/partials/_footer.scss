@@ -1,6 +1,7 @@
 .footer {
   margin: 0 auto;
 
+
   &__nav {
     height: 200px;
     background: #172025;
@@ -12,16 +13,25 @@
     margin: 0;
     height: inherit;
     padding: 0 50px;
+    @media (max-width: 400px) {
+      flex-wrap: wrap;
+    }
   }
   &__list-item {
-    margin-left: 50px;
-    padding-right: 50px;
+    // margin-left: 50px;
+    // padding-right: 50px;
+    @media (max-width: 400px) {
+      width: 150px;
+      text-align: center;
+    }
+    
     > a {
       text-decoration: none;
       color: white;
       font: 400 18px "Quicksand";
       text-transform: uppercase;
       letter-spacing: 1px;
+      
     }
   }
 }
