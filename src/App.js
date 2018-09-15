@@ -13,7 +13,7 @@ class App extends Component {
   openNav = () => {
     var hamburgerNav = document.querySelector(".mobileNav");
 
-    if (hamburgerNav.style.right == "-100vw") {
+    if (hamburgerNav.style.right === "-100vw") {
       hamburgerNav.style.right = "0";
     } else {
       hamburgerNav.style.right = "-100vw";
