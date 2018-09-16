@@ -52,13 +52,13 @@ class Products extends Component {
     // Function handles the filter for sorting by the price
     let filterPrice = document.querySelector(".products-header__price-select")
       .value;
-    let priceArray = [];
-    if (this.state.filterArray.length > 0) {
-      priceArray = this.state.filterArray;
-    } else {
-      priceArray = this.state.cars;
-    }
-    let priceResults = priceArray.filter(currentItem => {
+    // let priceArray = [];
+    // if (this.state.filterArray.length > 0) {
+    //   priceArray = this.state.filterArray;
+    // } else {
+    //   priceArray = this.state.cars;
+    // }
+    let priceResults = this.state.cars.filter(currentItem => {
       const priceParts = filterPrice.split("-");
       const lowerBound = priceParts[0];
       const higherBound = priceParts[1];
@@ -81,13 +81,13 @@ class Products extends Component {
     let filterCar = document.querySelector(".products-header__type-select")
       .value;
 
-    let typeArray = [];
-    if (this.state.filterArray.length > 0) {
-      typeArray = this.state.filterArray;
-    } else {
-      typeArray = this.state.cars;
-    }
-    let typeResults = typeArray.filter(
+    // let typeArray = [];
+    // if (this.state.filterArray.length > 0) {
+    //   typeArray = this.state.filterArray;
+    // } else {
+    //   typeArray = this.state.cars;
+    // }
+    let typeResults = this.state.cars.filter(
       currentItem => currentItem.category === filterCar
     );
 

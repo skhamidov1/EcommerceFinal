@@ -42,15 +42,18 @@ class featuredCars extends Component {
     return (
       <div className="feat-cars-wrap">
         <h2>Featured Rentals</h2>
-        <div>
-          <button
+        <button
+          aria-label="Previous Image"
             className="prevButton"
             onClick={this.goToNextSlide}
           />
           <button
+            aria-label="Next Image"
             className="nextButton"
             onClick={this.goToNextSlide}
           />
+        <div>
+         
           <div className="feat-cars-wrap__row">
             <div className="feat-cars-wrap__img-wrap">
               <img
