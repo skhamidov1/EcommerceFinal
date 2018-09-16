@@ -525,7 +525,7 @@ table {
   width: 100%;
   z-index: 3;
   display: flex; }
-  @media (max-width: 400px) {
+  @media (max-width: 535px) {
     .nav {
       justify-content: flex-end;
       padding-right: 10px; } }
@@ -537,7 +537,10 @@ table {
     align-items: center;
     justify-content: flex-end;
     width: 100%; }
-    @media (max-width: 400px) {
+    @media (max-width: 768px) {
+      .nav__unord-list {
+        padding-right: 10px; } }
+    @media (max-width: 535px) {
       .nav__unord-list {
         display: none;
         width: calc(100% - 60px); } }
@@ -545,12 +548,15 @@ table {
     display: none;
     width: 50px;
     cursor: pointer; }
-    @media (max-width: 400px) {
+    @media (max-width: 535px) {
       .nav__hamburger {
         display: block; } }
   .nav__list-item {
     margin-left: 30px;
     padding-right: 30px; }
+    @media (max-width: 768px) {
+      .nav__list-item {
+        padding: 0; } }
     .nav__list-item > img {
       height: 21px; }
     .nav__list-item--margin {
@@ -576,7 +582,7 @@ table {
   background: whitesmoke;
   z-index: 50;
   transition: 300ms ease-out; }
-  @media (max-width: 400px) {
+  @media (max-width: 535px) {
     .mobileNav {
       display: block; } }
   .mobileNav__unord-list {
@@ -944,8 +950,7 @@ table {
     margin-right: 4%; }
     @media (max-width: 768px) {
       .form-wrap__firstName-wrap {
-        margin-bottom: 20px;
-        margin: 0; } }
+        margin: 0 0 20px; } }
   .form-wrap__firstName-wrap, .form-wrap__lastName-wrap {
     width: 48%; }
     @media (max-width: 768px) {
@@ -1032,15 +1037,9 @@ table {
         margin-bottom: 20px; } }
     @media (max-width: 768px) {
       .products-header__select-buttons {
-        flex-wrap: nowrap;
+        justify-content: center;
         align-items: center;
-        min-width: 100%;
-        min-height: 180px; } }
-    @media (max-width: 650px) {
-      .products-header__select-buttons {
-        flex-wrap: wrap;
-        justify-content: space-around;
-        min-width: 350px; } }
+        flex-wrap: wrap; } }
     @media (max-width: 400px) {
       .products-header__select-buttons {
         justify-content: center;
@@ -1062,10 +1061,10 @@ table {
     margin-top: auto; }
     @media (max-width: 768px) {
       .products-header__type-select, .products-header__price-select {
-        margin: 0; } }
+        margin: 0 auto 10px; } }
     @media (max-width: 400px) {
       .products-header__type-select, .products-header__price-select {
-        margin: 0; } }
+        margin: 0 0 10px; } }
   .products-header__show-all-button {
     margin: auto auto 0;
     font: 400 16px "Quicksand";
@@ -1079,7 +1078,7 @@ table {
     height: 40px; }
     @media (max-width: 768px) {
       .products-header__show-all-button {
-        margin: 0; } }
+        margin: 0 auto; } }
   .products-header > form {
     display: flex;
     align-items: center;
