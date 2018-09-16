@@ -1,15 +1,12 @@
 .diplayFlex {
   display: flex;
-
 }
 .margin-right {
-    margin-right: 25px;
+  margin-right: 25px;
 }
 .margin-bottom {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
-
-
 
 .modal-wrap {
   height: 100vh;
@@ -18,21 +15,25 @@
   display: flex;
   align-items: center;
   top: 0;
-  background-color: rgba(0,0,0, 0.7);
+  background-color: rgba(0, 0, 0, 0.7);
   z-index: 100;
-  
+
   &__form {
     margin: 0 auto;
     width: 625px;
     padding: 50px;
     background-color: rgba(206, 45, 40, 0.95);
+    @media (max-width: 680px) {
+      width: 380px;
+      padding: 20px;
+    }
 
     > h2 {
-        font: 400 25px "Quicksand";
-        color: white;
-        text-align: center;
-        margin: 0 0 10px;
-        text-transform: uppercase;
+      font: 400 25px "Quicksand";
+      color: white;
+      text-align: center;
+      margin: 0 0 10px;
+      text-transform: uppercase;
     }
     label {
       display: block;
@@ -48,37 +49,69 @@
       color: black;
       padding: 5px 5px;
       border: 1px solid black;
+      @media (max-width: 680px) {
+        width: 165px;
+        margin: 0;
+      }
     }
-    
   }
- 
+
+  &__name-wrap,
+  &__email-phone-wrap,
+  &__city-state-wrap {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__card-cvv-wrap {
+    @media (max-width: 680px) {
+      display: block;
+    }
+  }
+
   &__card-num-wrap {
     > input {
       width: 350px;
+      @media (max-width: 680px) {
+        width: 100%;
+      }
     }
   }
   &__cvv-wrap {
+    @media (max-width: 680px) {
+      display: block;
+    }
     > input {
-        width: 150px;
+      width: 150px;
+      @media (max-width: 680px) {
+        width: 170px;
       }
+    }
   }
   &__street-wrap {
     > input {
-        width: 100%;
-      }
-  } 
+      width: 100%;
+    }
+  }
   &__zip-wrap {
     > input {
-        width: 150px;
+      width: 150px;
+      @media (max-width: 680px) {
+        width: 170px;
       }
-  } 
+    }
+  }
   &__button-wrap {
     width: 525px;
     display: flex;
     justify-content: space-around;
     padding: 0 50px;
+    @media (max-width: 680px) {
+      width: 340px;
+      padding: 0;
+    }
   }
-  &__submit, &__cancel {
+  &__submit,
+  &__cancel {
     background: #172025;
     border: none;
     color: white;

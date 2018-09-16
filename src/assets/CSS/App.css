@@ -1214,6 +1214,10 @@ table {
     width: 625px;
     padding: 50px;
     background-color: rgba(206, 45, 40, 0.95); }
+    @media (max-width: 680px) {
+      .modal-wrap__form {
+        width: 380px;
+        padding: 20px; } }
     .modal-wrap__form > h2 {
       font: 400 25px "Quicksand";
       color: white;
@@ -1233,19 +1237,45 @@ table {
       color: black;
       padding: 5px 5px;
       border: 1px solid black; }
+      @media (max-width: 680px) {
+        .modal-wrap__form input {
+          width: 165px;
+          margin: 0; } }
+  .modal-wrap__name-wrap, .modal-wrap__email-phone-wrap, .modal-wrap__city-state-wrap {
+    display: flex;
+    justify-content: space-between; }
+  @media (max-width: 680px) {
+    .modal-wrap__card-cvv-wrap {
+      display: block; } }
   .modal-wrap__card-num-wrap > input {
     width: 350px; }
+    @media (max-width: 680px) {
+      .modal-wrap__card-num-wrap > input {
+        width: 100%; } }
+  @media (max-width: 680px) {
+    .modal-wrap__cvv-wrap {
+      display: block; } }
   .modal-wrap__cvv-wrap > input {
     width: 150px; }
+    @media (max-width: 680px) {
+      .modal-wrap__cvv-wrap > input {
+        width: 170px; } }
   .modal-wrap__street-wrap > input {
     width: 100%; }
   .modal-wrap__zip-wrap > input {
     width: 150px; }
+    @media (max-width: 680px) {
+      .modal-wrap__zip-wrap > input {
+        width: 170px; } }
   .modal-wrap__button-wrap {
     width: 525px;
     display: flex;
     justify-content: space-around;
     padding: 0 50px; }
+    @media (max-width: 680px) {
+      .modal-wrap__button-wrap {
+        width: 340px;
+        padding: 0; } }
   .modal-wrap__submit, .modal-wrap__cancel {
     background: #172025;
     border: none;
