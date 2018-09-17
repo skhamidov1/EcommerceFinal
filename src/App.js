@@ -21,20 +21,17 @@ class App extends Component {
   };
   render() {
     return (
-      <div>
-        <BrowserRouter>
-          <div>
-            <Header closeMobileNav={this.openNav} />
-            <MobileNav closeMobileNav={this.openNav}/>
-            <Route exact path="/" component={Home} />
-            <Route path="/products" component={Products} />
-            <Route path="/contact" component={Contact} />
-          </div>
-        </BrowserRouter>
-        <BrowserRouter>
+      <BrowserRouter>
+        <div>
+          <Header closeMobileNav={this.openNav} />
+          <MobileNav closeMobileNav={this.openNav} />
+          <Route exact path="/" component={Home} />
+          <Route path="/inventory" component={Products} />
+          <Route path="/contact" component={Contact} />
           <Footer />
-        </BrowserRouter>
-      </div>
+
+        </div>
+      </BrowserRouter>
     );
   }
 }

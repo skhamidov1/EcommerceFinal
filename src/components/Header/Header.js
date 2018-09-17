@@ -10,7 +10,7 @@ const header = (props) => {
                     <li className="nav__list-item nav__list-item--padding"><Link to="/">RoyalRentals</Link></li>
                     <li className="nav__list-item nav__list-item--margin"><img src="../../../static/img/crown.svg" alt="Crown" /></li>
                     <li className="nav__list-item"><Link to="/">Home</Link></li>
-                    <li className="nav__list-item"><Link to="/products">Inventory</Link></li>
+                    <li className="nav__list-item"><Link to="/inventory">Inventory</Link></li>
                     <li className="nav__list-item"><Link to="/contact">Contact</Link></li>
                 </ul>
                 <img onClick={props.closeMobileNav}
