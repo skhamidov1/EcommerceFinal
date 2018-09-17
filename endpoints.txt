@@ -1,25 +1,25 @@
 				ECOMMERCE ENDPOINTS
 
 --IF YOU WANT TO VIEW INVENTORY--
-GET::https://www.royalrentals.com/inventory
+GET::https://royalrentals.com/inventory
 --IF YOU WANT TO ADD INVENTORY--
-POST::https://www.royalrentals.com/inventory/:id
+POST::https://royalrentals.com/inventory/:id
 --IF YOU WANT TO EDIT INVENTORY--
-PUT::https://www.royalrentals.com/inventory/:id
+PUT::https://royalrentals.com/inventory/:id
 --IF YOU WANT TO DELETE INVENTORY--
-DELETE::https://www.royalrentals.com/inventory/:id
+DELETE::https://royalrentals.com/inventory/:id
 
 --IF YOU WANT TO VIEW CURRENT ADMIN USERS--
-GET::https://www.royalrentals.com/admin_users
+GET::https://royalrentals.com/admin_users
 --IF YOU WANT TO VIEW ADD ADMIN USERS--
-POST::https://www.royalrentals.com/admin_users/:id
+POST::https://royalrentals.com/admin_users/:id
 --IF YOU WANT TO VIEW EDIT ADMIN USERS--
-PUT::https://www.royalrentals.com/admin_users/:id
+PUT::https://royalrentals.com/admin_users/:id
 --IF YOU WANT TO VIEW DELETE ADMIN USERS--
-DELETE::https://www.royalrentals.com/admin_users/:id
+DELETE::https://royalrentals.com/admin_users/:id
 
 --IF YOU WANT TO VIEW INFO SUBMITTED THROUGH CONTACT FORM--
-GET::https://www.royalrentals.com/form_submission
+GET::https://royalrentals.com/contact/form_submission
 --IF YOU WANT TO DELETE INFO SUBMITTED THROUGH CONTACT FORM--
-DELETE::https://www.royalrentals.com/form_submission/:id
+DELETE::https://royalrentals.com/contact/form_submission/:id
 
