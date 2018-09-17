@@ -3,10 +3,10 @@ import React from "react";
 const contact = () => {
 
   return (
-    <div>
+    <main>
       <div className="contact-hero">
         <div className="contact-hero__overlay">
-          <h2>Contact Us</h2>
+          <h1>Contact Us</h1>
           <p>For General Inquiries, Please Call Us At 704.444.7833</p>
         </div>
       </div>
@@ -41,13 +41,13 @@ const contact = () => {
             <label htmlFor="comments">Comments</label>
             <textarea id="comments" name="comments" />
           </div>
-          <input type="submit" className="submit" />
+          <input aria-label="submit form" type="submit" className="submit" />
         </form>
       </div>
       <div className="contact-bottom-caption">
           <p>We Respond In Less Than 24 Hours!</p>
         </div>
-    </div>
+    </main>
   );
 };
 

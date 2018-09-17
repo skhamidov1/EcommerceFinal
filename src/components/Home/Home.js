@@ -14,6 +14,7 @@ class Home extends Component {
         <BrowserRouter>
           <Route path="/products" component={Products} />
         </BrowserRouter>
+        <main>
         <div className="home-intro">
           <h2>RoyalRentals</h2>
           <p>
@@ -43,6 +44,7 @@ class Home extends Component {
           <p>Stop Dreaming, Start Driving!</p>
           <a href="">Inventory</a>
         </div>
+        </main>
       </div>
     );
   }

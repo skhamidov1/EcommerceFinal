@@ -888,7 +888,7 @@ table {
     @media (max-width: 768px) {
       .contact-hero__overlay {
         background: rgba(0, 0, 0, 0.5); } }
-  .contact-hero h2 {
+  .contact-hero h1 {
     font: 400 48px "Quicksand";
     color: white;
     text-transform: uppercase;
@@ -1011,12 +1011,12 @@ table {
       .products-header__heading {
         margin: 0;
         width: 350px; } }
-    .products-header__heading > h2 {
+    .products-header__heading > h1 {
       font: 400 40px "Quicksand";
       text-transform: uppercase;
       margin: 0 0 20px; }
       @media (max-width: 990px) {
-        .products-header__heading > h2 {
+        .products-header__heading > h1 {
           text-align: center; } }
     .products-header__heading > p {
       font: 400 20px "Quicksand";
