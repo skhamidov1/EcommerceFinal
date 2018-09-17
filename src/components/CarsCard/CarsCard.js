@@ -18,7 +18,7 @@ const card = props => {
         <p>Engine: {props.engine}</p>
         <button
           className="card-button"
-          onClick={props.handleClick}
+          onClick={props.showImageDescription}
           data-id={props.carId}
         >
           Description
