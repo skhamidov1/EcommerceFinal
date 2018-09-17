@@ -45,7 +45,6 @@ class Products extends Component {
         filterArray: showFilteredOverlay
       });
     }
-    //
   };
 
   priceSort = () => {
@@ -55,7 +54,7 @@ class Products extends Component {
     // let priceArray = [];
     // if (this.state.filterArray.length > 0) {
     //   priceArray = this.state.filterArray;
-    // } else {
+    // }else {
     //   priceArray = this.state.cars;
     // }
     let priceResults = this.state.cars.filter(currentItem => {
@@ -130,10 +129,6 @@ class Products extends Component {
   };
 
   render() {
-    if (this.state.cars.length > 0) {
-      console.log(this.state.cars[0].name);
-    }
-
     let cars = [];
 
     if (this.state.filterArray.length > 0) {
