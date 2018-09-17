@@ -20,7 +20,7 @@ class Products extends Component {
       );
   }
 
-  handleClick = e => {
+  showImageDescription = e => {
     // Adds a display property to the cars array to add description overlay
     let newCars = [];
     newCars = this.state.cars.map(car => {
@@ -46,55 +46,37 @@ class Products extends Component {
       });
     }
   };
-
-  priceSort = () => {
-    // Function handles the filter for sorting by the price
+  filterSelect = () => {
     let filterPrice = document.querySelector(".products-header__price-select")
       .value;
-    // let priceArray = [];
-    // if (this.state.filterArray.length > 0) {
-    //   priceArray = this.state.filterArray;
-    // }else {
-    //   priceArray = this.state.cars;
-    // }
-    let priceResults = this.state.cars.filter(currentItem => {
-      const priceParts = filterPrice.split("-");
-      const lowerBound = priceParts[0];
-      const higherBound = priceParts[1];
-
-      if (higherBound) {
-        return (
-          currentItem.rentPrice >= lowerBound &&
-          currentItem.rentPrice <= higherBound
-        );
-      }
-      return currentItem.rentPrice >= lowerBound;
-    });
-
-    this.setState({
-      filterArray: priceResults
-    });
-  };
-  typeSort = () => {
-    // Function handles the filter for sorting by the type of car
     let filterCar = document.querySelector(".products-header__type-select")
       .value;
 
-    // let typeArray = [];
-    // if (this.state.filterArray.length > 0) {
-    //   typeArray = this.state.filterArray;
-    // } else {
-    //   typeArray = this.state.cars;
-    // }
-    let typeResults = this.state.cars.filter(
-      currentItem => currentItem.category === filterCar
-    );
+    let newCarsArray = this.state.cars;
 
+    if (filterCar !== "None") {
+      newCarsArray = newCarsArray.filter(car => car.category === filterCar);
+    }
+    if (filterPrice !== "None") {
+      newCarsArray = newCarsArray.filter(car => {
+        const priceParts = filterPrice.split("-");
+        const lowerPrice = priceParts[0];
+        const higherPrice = priceParts[1];
+
+        if (higherPrice) {
+          return (
+            car.rentPrice >= lowerPrice &&
+            car.rentPrice <= higherPrice
+          );
+        }
+        return car.rentPrice >= lowerPrice;
+      });
+    }
     this.setState({
-      filterArray: typeResults
-    });
+      filterArray: newCarsArray
+    })
   };
-
+ 
   showAllVehicles = () => {
     if (this.state.filterArray.length > 0) {
       document.querySelector(".products-header__type-select").value = "None";
@@ -113,13 +95,10 @@ class Products extends Component {
           ? true
           : false
     );
-
     this.setState({
       filterArray: searchResults
     });
     document.querySelector(".search-bar").value = "";
-    document.querySelector(".products-header__type-select").value = "None";
-    document.querySelector(".products-header__price-select").value = "None";
   };
 
   showModalFunction = e => {
@@ -148,7 +127,7 @@ class Products extends Component {
           rentPrice={car.rentPrice}
           engine={car.engine}
           carId={car.carId}
-          handleClick={this.handleClick}
+          showImageDescription={this.showImageDescription}
           car={car}
           showModal={this.showModalFunction}
         />
@@ -156,14 +135,11 @@ class Products extends Component {
     });
 
     return (
-
       <div>
-
         <SelectTags
           search={this.searchBarHandler}
           showVehicles={this.showAllVehicles}
-          priceSort={this.priceSort}
-          typeSort={this.typeSort}
+          filterSelect={this.filterSelect}
         />
         <div className="products-wrap">{card}</div>
         {this.state.showModal && (
