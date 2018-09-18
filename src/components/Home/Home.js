@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route, Link } from "react-router-dom";
 import Hero from "../Hero/Hero";
 import Products from "../Products/Products";
 import FeaturedCars from "../FeaturedCars/FeaturedCars";
@@ -37,12 +37,12 @@ class Home extends Component {
               Expectations
             </h2>
             <p>We Make It Happen And You Leave Satisfied</p>
-            <a href="">Rent Now</a>
+            <Link to="/inventory">Rent Now</Link>
           </div>
         </div>
         <div className="home-bottom-caption">
           <p>Stop Dreaming, Start Driving!</p>
-          <a href="">Inventory</a>
+          <Link to="/inventory">Inventory</Link>
         </div>
         </main>
       </div>
