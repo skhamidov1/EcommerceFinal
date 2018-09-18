@@ -14,7 +14,7 @@ const card = props => {
       <div className="products-wrap__description-wrap">
         <h2>{props.name}</h2>
         <p>Price: {props.price}</p>
-        <p>Rent: ${props.rentPrice.toLocaleString('en')} / Day</p>
+        <p>Rent: ${props.rentPrice.toLocaleString("en")} / Day</p>
         <p>Engine: {props.engine}</p>
         <button
           className="card-button"
@@ -23,7 +23,12 @@ const card = props => {
         >
           Description
         </button>
-        <button onClick={props.showModal} className="card-button card-button--color">Rent Now</button>
+        <button
+          onClick={props.showModal}
+          className="card-button card-button--color"
+        >
+          Rent Now
+        </button>
       </div>
     </div>
   );

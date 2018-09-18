@@ -9,6 +9,7 @@ import Products from "./components/Products/Products";
 import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
 
+
 class App extends Component {
   openNav = () => {
     var hamburgerNav = document.querySelector(".mobileNav");

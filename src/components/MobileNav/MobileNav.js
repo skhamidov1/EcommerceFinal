@@ -9,7 +9,7 @@ const mobileNav = (props) => {
           <Link onClick={props.closeMobileNav}to="/">Home</Link>
         </li>
         <li className="mobileNav__list-item">
-          <Link onClick={props.closeMobileNav}to="/products">Inventory</Link>
+          <Link onClick={props.closeMobileNav}to="/inventory">Inventory</Link>
         </li>
         <li className="mobileNav__list-item">
           <Link onClick={props.closeMobileNav}to="/contact">Contact</Link>
