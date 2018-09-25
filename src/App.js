@@ -30,7 +30,6 @@ class App extends Component {
           <Route path="/inventory" component={Products} />
           <Route path="/contact" component={Contact} />
           <Footer />
-
         </div>
       </BrowserRouter>
     );

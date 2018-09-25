@@ -10,14 +10,10 @@ class Products extends Component {
   };
 
   componentDidMount() {
-    const url = "https://api.jsonbin.io/b/5b9aa0c274ca4633aadc4707";
+    const url = "http://localhost:3001/inventory";
     fetch(url)
       .then(response => response.json())
-      .then(json =>
-        this.setState({
-          cars: json.cars
-        })
-      );
+      .then(json => this.setState({cars: json}));
   }
 
   showImageDescription = e => {
