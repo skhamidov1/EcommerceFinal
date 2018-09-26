@@ -32,7 +32,11 @@ let allCars = mongoose.model("allCars", {
   image: {
     type: String,
     required: true
-  }
+  },
+  array: [
+    {thing: {type: String}}
+  ]
+
 });
 
 module.exports = { allCars };

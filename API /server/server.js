@@ -1,11 +1,16 @@
 const {mongoose}= require("./db/mongoose");
 const {allCars} = require('./models/cars')
+const {contactInfo} = require("./models/contactInfo")
 const express = require("express")
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const app = express()
 
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ //For contact form info
+    extended: true
+ }));
+
 app.use(cors())
 
 //GET ALL CARS
@@ -31,6 +36,21 @@ app.get('/inventory/:id', (req, res) => {
     }).catch(err => res.status(400).send(err))
 })
 
+// POST FORM DATA
+app.post("/form_submission", (req, res) => {
+    const {firstName, lastName, email, phone,
+        comments} = req.body
+    const formInfo = new contactInfo({
+        firstName,
+        lastName,
+        email,
+        phone,
+        comments
+    })
+    formInfo.save().then(() => {
+        res.status(200).redirect("http://localhost:3000/contact")
+    })
+})
 // POST
 app.post('/inventory', (req, res) => {
     const {carId, name, description, price,
