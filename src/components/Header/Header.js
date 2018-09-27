@@ -12,6 +12,7 @@ const header = (props) => {
                     <li className="nav__list-item"><Link to="/">Home</Link></li>
                     <li className="nav__list-item"><Link to="/inventory">Inventory</Link></li>
                     <li className="nav__list-item"><Link to="/contact">Contact</Link></li>
+                    <li className="nav__list-item"><Link to="/admin">Admin</Link></li>
                 </ul>
                 <img onClick={props.closeMobileNav}
                 src="../../../static/img/hamburger.svg" 

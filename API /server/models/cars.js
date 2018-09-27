@@ -1,10 +1,6 @@
 let mongoose = require("mongoose");
 
 let allCars = mongoose.model("allCars", {
-  carId: {
-    type: Number,
-    required: true
-  },
   name: {
     type: String,
     required: true
@@ -32,10 +28,7 @@ let allCars = mongoose.model("allCars", {
   image: {
     type: String,
     required: true
-  },
-  array: [
-    {thing: {type: String}}
-  ]
+  }
 
 });
 
