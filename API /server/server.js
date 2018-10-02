@@ -38,6 +38,16 @@ app.get('/inventory/:id', (req, res) => {
     }).catch(err => res.status(400).send(err))
 })
 
+app.get('/form_submission', (req, res) => {
+    contactInfo.find().then((info) => {
+       if(info) {
+           res.send(info)
+       } else {
+        res.status(404).send("Unable To Find Contact Info")
+       }
+    }).catch(err => res.status(400).send(err))
+})
+
 // POST FORM DATA
 app.post("/form_submission", (req, res) => {
     const {firstName, lastName, email, phone,
@@ -53,6 +63,7 @@ app.post("/form_submission", (req, res) => {
         res.status(200).redirect("http://localhost:3000/contact")
     })
 })
+
 // POST
 app.post('/inventory', (req, res) => {
     const {name, description, price,
@@ -67,8 +78,8 @@ app.post('/inventory', (req, res) => {
         image
     })
 
-    car.save().then(obj => {
-        res.send(obj)
+    car.save().then(() => {
+        res.status(200).redirect("http://localhost:3000/admin")
     }, (e) => {
         res.status(400).send(e);
     })
@@ -89,15 +100,51 @@ app.delete("/inventory/:id", (req, res) => {
 
 // UPDATE
 app.put("/inventory/:id", (req, res) => {
-    const id = req.params.id
-    let body = req.body
+    const ids = req.params.id
+    const {name, description, price,
+        rentPrice, engine,category, image} = req.body
 
-    allCars.findByIdAndUpdate(id, {$set: body}, {new: true}).then(cars => {
+    allCars.findByIdAndUpdate(ids).then(cars => {
         if(!cars) {
             return res.status(400).send("Unable To Update Car");
-        } else {
-            res.send(cars)
+        } 
+        if(name !== "") {
+            cars.set({
+                name
+            })
         }
+        if(description !== "") {
+            cars.set({
+                description
+            })
+        }
+        if(price !== "") {
+            cars.set({
+                price
+            })
+        }
+        if(rentPrice !== "") {
+            cars.set({
+                rentPrice
+            })
+        }
+        if(engine !== "") {
+            cars.set({
+                engine
+            })
+        }
+        if(category !== "") {
+            cars.set({
+                category
+            })
+        }
+        if(image !== "") {
+            cars.set({
+                image
+            })
+        }
+        cars.save().then(updatedCar => console.log(updatedCar)
+    )
     }).catch(err => res.status(400).send(err))
 })
 
