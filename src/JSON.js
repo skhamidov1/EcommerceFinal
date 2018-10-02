@@ -5,11 +5,10 @@ const cars = {
         "name": "Bugatti Chiron",
         "description": "Leaving the 99.99 percent in its dust, the Chiron is a 1500-hp smackdown of every hypercar ever produced.",
         "price": "$3,000,000",
-        "rentPrice": "$22,000/Day",
+        "rentPrice": 22000,
         "engine": "8.0L Quad-Turbocharged W16",
         "category": "Exotic",
         "image": "../../../static/img/bugatti.jpg"
-
     },
     {  
         "name": "Ferrari 458",
@@ -176,9 +175,7 @@ const cars = {
         "engine": "6.0L V12",
         "category": "Luxury",
         "image": "../../../static/img/gt.jpg"
-    },
-    
-
+    }    
   ]
 };
 export default cars;

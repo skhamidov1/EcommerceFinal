@@ -6,6 +6,8 @@
   width: 100%;
   z-index: 3;
   display: flex;
+  align-items: center;
+  
   @media (max-width: 535px) {
     justify-content: flex-end;
     padding-right: 10px;
@@ -13,7 +15,7 @@
   &__unord-list {
     display: flex;
     margin: 0;
-    padding: 0 20px;
+    padding: 0;
     height: inherit;
     align-items: center;
     justify-content: flex-end;
@@ -35,12 +37,11 @@
     }
   }
   &__list-item {
-    margin-left: 30px;
+    margin-left: 20px;
     padding-right: 30px;
     @media (max-width: 768px) {
       margin: 0;
       padding-right: 20px;
-
     }
     > img {
       height: 21px;
@@ -57,10 +58,28 @@
       font: 400 18px "Quicksand";
       text-transform: uppercase;
       letter-spacing: 1px;
-      &:hover {
-        border-bottom: 1px solid white;
-        padding-bottom: 5px;
-      }
+      @include slidingUnderline()
+    }
+    .active {
+      border-bottom: 1px solid white;
+    }
+  }
+
+  &__auth {
+    border: 1px solid white;
+    color: white;
+    letter-spacing: 1px;
+    background: none;
+    padding: 5px;
+    width: 90px;
+    margin-right: 20px;
+    font: 400 16px "Quicksand";
+    text-transform: uppercase;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.15);
+
+    &:hover {
+      background: #ce2d28;
+      border: none;
     }
   }
 }

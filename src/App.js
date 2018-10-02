@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import "./assets/CSS/App.css";
 import Home from "./components/Home/Home";
@@ -9,27 +9,34 @@ import Products from "./components/Products/Products";
 import Contact from "./components/Contact/Contact";
 import Admin from "./components/Admin/Admin";
 import Footer from "./components/Footer/Footer";
-
+import Callback from "./components/Callback/Callback"
+import SecuredRoute from './components/SecuredRoute/SecuredRoute';
+import ContactInfo from "./components/ContactInfo/ContactInfo";
 
 class App extends Component {
   state = {
     cars: [],
+    contactInfo: [],
     filterArray: [],
     showModal: false
   };
 
   componentDidMount() {
-    const url = "http://localhost:3001/inventory";
-    fetch(url)
+    
+    fetch("http://localhost:3001/inventory")
       .then(response => response.json())
       .then(json => this.setState({cars: json}));
+
+    fetch("http://localhost:3001/form_submission")
+      .then(response => response.json())
+      .then(json => this.setState({contactInfo: json}));
   }
 
   showImageDescription = e => {
     // Adds a display property to the cars array to add description overlay
     let newCars = [];
     newCars = this.state.cars.map(car => {
-      return car.carId === Number(e.target.dataset.id)
+      return car._id === e.target.dataset.id
         ? { ...car, display: !car.display }
         : car;
     });
@@ -37,7 +44,7 @@ class App extends Component {
     this.setState({
       cars: newCars
     });
-    //
+    
     // Adds a display property to the filtered array to add description overlay
     let showFilteredOverlay = [];
     if (this.state.filterArray.length > 0) {
@@ -122,7 +129,7 @@ class App extends Component {
     }
   };
   render() {
-    
+    let contactInfo = this.state.contactInfo
     let cars = [];
 
     if (this.state.filterArray.length > 0) {
@@ -139,19 +146,26 @@ class App extends Component {
 
           <MobileNav closeMobileNav={this.openNav} />
 
-          <Route exact path="/" component={Home} />
+          <Switch>
+            <Route exact path="/callback" component={Callback} />
 
-          <Route path="/inventory" render={() => <Products showModalFunc={this.showModalFunction} cars={cars}
-          showImageDescription = {this.showImageDescription}
-          modalShow = {this.state.showModal}
-          searchBar = {this.searchBarHandler}
-          showAllVehicles = {this.showAllVehicles}
-          selectFilter = {this.filterSelect}
-          /> }/>
+            <Route exact path="/" component={Home} />
 
-          <Route path="/contact" component={Contact} />
+            <Route path="/inventory" render={() => <Products showModalFunc={this.showModalFunction} cars={cars}
+            showImageDescription = {this.showImageDescription}
+            modalShow = {this.state.showModal}
+            searchBar = {this.searchBarHandler}
+            showAllVehicles = {this.showAllVehicles}
+            selectFilter = {this.filterSelect} /> }/>
 
-          <Route path="/admin" render = {() => <Admin cars={this.state.cars}/>}/>
+            <Route path="/contact" component={Contact} />
+
+            <SecuredRoute path='/admin/contactInfo' component={ContactInfo} // Contact Submissions
+            contactInfo={contactInfo}/>}/>
+
+            <SecuredRoute exact path='/admin' component={Admin}   // Products 
+          cars={cars}/>
+          </Switch>
 
           <Footer />
         </div>

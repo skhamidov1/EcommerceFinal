@@ -15,7 +15,7 @@ const Products = (props) => {
           price={car.price}
           rentPrice={car.rentPrice}
           engine={car.engine}
-          carId={car.carId}
+          carId={car._id}
           showImageDescription={props.showImageDescription}
           car={car}
           showModal={props.showModalFunc}

@@ -524,7 +524,8 @@ table {
   top: 0;
   width: 100%;
   z-index: 3;
-  display: flex; }
+  display: flex;
+  align-items: center; }
   @media (max-width: 535px) {
     .nav {
       justify-content: flex-end;
@@ -532,7 +533,7 @@ table {
   .nav__unord-list {
     display: flex;
     margin: 0;
-    padding: 0 20px;
+    padding: 0;
     height: inherit;
     align-items: center;
     justify-content: flex-end;
@@ -552,7 +553,7 @@ table {
       .nav__hamburger {
         display: block; } }
   .nav__list-item {
-    margin-left: 30px;
+    margin-left: 20px;
     padding-right: 30px; }
     @media (max-width: 768px) {
       .nav__list-item {
@@ -570,9 +571,31 @@ table {
       font: 400 18px "Quicksand";
       text-transform: uppercase;
       letter-spacing: 1px; }
-      .nav__list-item > a:hover {
-        border-bottom: 1px solid white;
-        padding-bottom: 5px; }
+      .nav__list-item > a::after {
+        content: "";
+        display: block;
+        width: 0;
+        height: 1px;
+        background: white;
+        transition: width ease 0.5s; }
+      .nav__list-item > a:hover::after {
+        width: 100%; }
+    .nav__list-item .active {
+      border-bottom: 1px solid white; }
+  .nav__auth {
+    border: 1px solid white;
+    color: white;
+    letter-spacing: 1px;
+    background: none;
+    padding: 5px;
+    width: 90px;
+    margin-right: 20px;
+    font: 400 16px "Quicksand";
+    text-transform: uppercase;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.15); }
+    .nav__auth:hover {
+      background: #ce2d28;
+      border: none; }
 
 .mobileNav {
   display: none;
@@ -645,7 +668,7 @@ table {
     position: absolute;
     top: 0;
     background: rgba(0, 0, 0, 0.5);
-    height: 400px;
+    height: 525px;
     width: 100%;
     z-index: 1; }
   .home-service-hero__desc-wrap {
@@ -730,44 +753,93 @@ table {
       color: white; }
 
 .footer {
-  margin: 0 auto; }
-  .footer__nav {
-    height: 200px;
-    background: #172025; }
-  .footer__unord-list {
+  margin: 0 auto;
+  background: #172025;
+  padding: 50px 0 0 135px;
+  display: flex;
+  flex-wrap: wrap; }
+  .footer__headers-list {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-    height: inherit;
-    padding: 0 50px; }
-    @media (max-width: 768px) {
-      .footer__unord-list {
-        flex-wrap: wrap; } }
-    @media (max-width: 400px) {
-      .footer__unord-list {
-        flex-wrap: wrap; } }
-  .footer__list-item {
-    margin-left: 50px;
-    padding-right: 50px; }
-    @media (max-width: 768px) {
-      .footer__list-item {
-        text-align: center;
-        width: 150px;
-        margin: 0;
-        padding: 0; } }
-    @media (max-width: 400px) {
-      .footer__list-item {
-        width: 150px;
-        text-align: center;
-        margin: 0;
-        padding: 0; } }
-    .footer__list-item > a {
-      text-decoration: none;
+    list-style: none;
+    padding: 0;
+    margin-right: 135px;
+    width: 100%; }
+    .footer__headers-list li {
+      width: 445px;
       color: white;
-      font: 400 18px "Quicksand";
-      text-transform: uppercase;
+      font: 400 20px "Quicksand";
+      text-transform: uppercase; }
+  .footer__connected-wrap {
+    width: 435px; }
+    .footer__connected-wrap p {
+      width: inherit;
+      font: 400 16px "Quicksand";
+      color: white;
       letter-spacing: 1px; }
+    .footer__connected-wrap form {
+      margin: 20px 0; }
+      .footer__connected-wrap form label {
+        display: block;
+        padding-bottom: 5px;
+        font: 400 16px "Quicksand";
+        color: white; }
+      .footer__connected-wrap form input {
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        background: #f8f8f8;
+        color: black;
+        font: 400 18px "Quicksand";
+        letter-spacing: 1.5px;
+        margin-right: 5px;
+        height: 35px; }
+  .footer__icon-wrap {
+    display: flex;
+    padding: 20px 0; }
+    .footer__icon-wrap img {
+      width: 40px;
+      height: 40px;
+      margin-right: 40px; }
+  .footer__commited-wrap {
+    display: flex;
+    width: 435px;
+    height: 200px; }
+    .footer__commited-wrap p {
+      width: 300px;
+      font: 400 16px "Quicksand";
+      color: white;
+      letter-spacing: 1px; }
+    .footer__commited-wrap img {
+      width: 60px;
+      height: 60px;
+      margin-left: 10px;
+      align-self: center; }
+  .footer__nav ul {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 200px; }
+  .footer__nav li {
+    margin: 0 50px 20px 0; }
+  .footer__nav a {
+    text-decoration: none;
+    color: white;
+    font: 400 16px "Quicksand";
+    letter-spacing: 1px; }
+  .footer__privacy-list {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    padding: 0;
+    margin-right: 135px; }
+    .footer__privacy-list li,
+    .footer__privacy-list a {
+      text-decoration: none;
+      list-style: none;
+      color: white;
+      font: 400 16px "Quicksand";
+      letter-spacing: 1px;
+      margin: 0 10px; }
 
 .feat-cars-wrap {
   width: 100%;
@@ -1091,6 +1163,7 @@ table {
       letter-spacing: 2px;
       border: 1px solid black;
       width: 350px;
+      box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.15);
       height: 35px; }
       @media (max-width: 400px) {
         .products-header > form > .search-bar {
@@ -1106,7 +1179,8 @@ table {
       background-repeat: no-repeat;
       background-size: 25px;
       background-position: center;
-      background-color: rgba(0, 0, 0, 0.8); }
+      background-color: rgba(0, 0, 0, 0.8);
+      box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.15); }
     .products-header > form ::placeholder {
       color: black;
       font: 400 16px "Quicksand"; }
@@ -1302,15 +1376,25 @@ table {
       margin: 20px 0;
       font: 400 48px "Quicksand";
       text-transform: uppercase; }
-    .cards-container .heading-container .new-car-button {
+    .cards-container .heading-container .heading-btn {
+      display: inline-block;
+      margin: 0 5px;
       border: 1px solid black;
       color: black;
       letter-spacing: 1px;
       padding: 10px;
-      width: 150px;
       font: 400 16px "Quicksand";
       text-transform: uppercase;
       box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.15); }
+      .cards-container .heading-container .heading-btn:hover {
+        background: #00b300;
+        color: white;
+        border: 1px solid #00b300; }
+    .cards-container .heading-container .new-car-btn {
+      width: 150px; }
+    .cards-container .heading-container .contact-submission-btn {
+      width: 230px;
+      text-decoration: none; }
   .cards-container .header-card {
     width: 1170px;
     display: flex;
@@ -1370,6 +1454,211 @@ table {
       height: 30px;
       width: 30px;
       cursor: pointer; }
+
+.edit-add-modal-overlay {
+  background: rgba(0, 0, 0, 0.7);
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  display: none;
+  justify-content: center;
+  align-items: center; }
+
+.edit-add-modal-heading {
+  height: 70px;
+  display: flex;
+  align-items: flex-end;
+  background: #f9f9f9;
+  padding: 0 0 15px 20px; }
+  .edit-add-modal-heading h2 {
+    margin: 0;
+    font: 400 19px "Quicksand";
+    text-transform: uppercase; }
+
+.edit-add-modal-form {
+  background: #eee;
+  width: 500px;
+  height: 630px;
+  position: fixed;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.15); }
+  .edit-add-modal-form label {
+    display: block;
+    color: black;
+    font: 400 18px "Quicksand";
+    text-transform: uppercase; }
+  .edit-add-modal-form .edit-add-modal-input-wrap {
+    width: 400px;
+    padding-top: 10px;
+    margin: 0 auto; }
+  .edit-add-modal-form input,
+  .edit-add-modal-form textarea {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: #f8f8f8;
+    width: inherit;
+    color: black;
+    font: 400 18px "Quicksand";
+    letter-spacing: 1.5px;
+    padding: 3px 20px; }
+    .edit-add-modal-form input:focus,
+    .edit-add-modal-form textarea:focus {
+      color: black;
+      font: 400 18px "Quicksand";
+      letter-spacing: 1.5px; }
+  .edit-add-modal-form .edit-add-modal-buttons-wrap {
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+    .edit-add-modal-form .edit-add-modal-buttons-wrap .edit-add-modal-button {
+      letter-spacing: 1px;
+      padding: 10px;
+      margin: 0 10px;
+      width: 150px;
+      font: 400 16px "Quicksand";
+      text-transform: uppercase;
+      background: #6686b7;
+      color: #fff;
+      border-radius: 4px; }
+      .edit-add-modal-form .edit-add-modal-buttons-wrap .edit-add-modal-button:hover {
+        background: #475d80; }
+      .edit-add-modal-form .edit-add-modal-buttons-wrap .edit-add-modal-button--color {
+        background: #d0363c; }
+        .edit-add-modal-form .edit-add-modal-buttons-wrap .edit-add-modal-button--color:hover {
+          background: #b61c23; }
+
+.delete-overlay {
+  background: rgba(0, 0, 0, 0.7);
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none; }
+
+.delete-modal {
+  height: 200px;
+  width: 500px;
+  background: #eee;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.15); }
+  .delete-modal__question {
+    text-align: center;
+    font: 400 25px "Quicksand"; }
+  .delete-modal__btns-wrap {
+    width: 350px;
+    margin: 50px auto 0; }
+  .delete-modal__btn {
+    letter-spacing: 1px;
+    padding: 10px;
+    width: 150px;
+    font: 400 16px "Quicksand";
+    text-transform: uppercase;
+    color: white;
+    border-radius: 4px;
+    margin: 0 12.5px; }
+    .delete-modal__btn--no {
+      background: #d0363c; }
+      .delete-modal__btn--no:hover {
+        background: #b61c23; }
+    .delete-modal__btn--yes {
+      background: #00b300; }
+      .delete-modal__btn--yes:hover {
+        background: #008f00; }
+
+.contact-info {
+  width: 100%;
+  width: 1170px;
+  margin: 90px auto 0; }
+  .contact-info__heading-wrap {
+    padding: 30px 0; }
+    .contact-info__heading-wrap h1 {
+      text-align: center;
+      margin: 20px 0;
+      font: 400 48px "Quicksand";
+      text-transform: uppercase; }
+  .contact-info__back-link-wrap {
+    display: flex;
+    justify-content: center; }
+  .contact-info__back-link {
+    text-align: center;
+    border: 1px solid black;
+    color: black;
+    letter-spacing: 1px;
+    padding: 10px;
+    font: 400 16px "Quicksand";
+    text-transform: uppercase;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.15);
+    text-decoration: none;
+    width: 150px; }
+    .contact-info__back-link:hover {
+      background: #00b300;
+      color: white;
+      border: 1px solid #00b300; }
+
+.info-card {
+  width: 100%;
+  display: flex;
+  box-shadow: 0px 0px 45px 0px rgba(0, 0, 0, 0.15);
+  margin-bottom: 20px;
+  height: 60px; }
+  .info-card__unord-list {
+    display: flex;
+    width: 100%;
+    padding: 0;
+    align-items: center;
+    justify-content: space-around; }
+    .info-card__unord-list li {
+      list-style: none;
+      width: 234px;
+      text-align: center;
+      font: 400 16px "Quicksand";
+      text-transform: uppercase; }
+      .info-card__unord-list li a {
+        text-decoration: none;
+        color: black;
+        font: 400 16px "Quicksand";
+        text-transform: uppercase;
+        cursor: pointer; }
+  .info-card__overlay {
+    background: rgba(0, 0, 0, 0.7);
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    z-index: 5;
+    top: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    margin-left: -135px; }
+  .info-card__comments-modal {
+    background: whitesmoke;
+    width: 500px;
+    min-height: 200px;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.15);
+    display: flex;
+    justify-content: center;
+    flex-direction: column; }
+    .info-card__comments-modal p {
+      text-align: center;
+      width: 100%;
+      padding: 0 10px;
+      font: 400 16px "Quicksand";
+      text-transform: uppercase;
+      word-break: break-all; }
+    .info-card__comments-modal button {
+      letter-spacing: 1px;
+      padding: 10px;
+      margin: 10px auto 0;
+      width: 100px;
+      font: 400 16px "Quicksand";
+      text-transform: uppercase;
+      background: #6686b7;
+      color: #fff; }
 
 .openMobileNav {
   right: 0; }

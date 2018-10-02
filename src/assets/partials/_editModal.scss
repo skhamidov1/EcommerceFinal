@@ -1,0 +1,88 @@
+.edit-add-modal-overlay {
+  background: rgba(0, 0, 0, 0.7);
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+.edit-add-modal-heading {
+  height: 70px;
+  display: flex;
+  align-items: flex-end;
+  background: #f9f9f9;
+  padding: 0 0 15px 20px;
+  h2 {
+    margin: 0;
+    font: 400 19px "Quicksand";
+    text-transform: uppercase;
+  }
+}
+
+.edit-add-modal-form {
+  background: #eee;
+  width: 500px;
+  height: 630px;
+  position: fixed;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.15);
+
+  label {
+    display: block;
+    color: black;
+    font: 400 18px "Quicksand";
+    text-transform: uppercase;
+  }
+
+  .edit-add-modal-input-wrap {
+    width: 400px;
+    padding-top: 10px;
+    margin: 0 auto;
+  }
+  input,
+  textarea {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: #f8f8f8;
+    width: inherit;
+    color: black;
+    font: 400 18px "Quicksand";
+    letter-spacing: 1.5px;
+    padding: 3px 20px;
+
+    &:focus {
+      color: black;
+      font: 400 18px "Quicksand";
+      letter-spacing: 1.5px;
+    }
+  }
+  .edit-add-modal-buttons-wrap {
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .edit-add-modal-button {
+      letter-spacing: 1px;
+      padding: 10px;
+      margin: 0 10px;
+      width: 150px;
+      font: 400 16px "Quicksand";
+      text-transform: uppercase;
+      background: #6686b7;
+      color: #fff;
+      border-radius: 4px;
+      &:hover {
+        background: #475d80;
+      }
+      &--color {
+          background: #d0363c;
+          &:hover {
+            background: #b61c23;
+          }
+      }
+    }
+  }
+}

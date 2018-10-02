@@ -1,26 +1,24 @@
-@import '../partials/_normalizer';
-@import '../partials/_hero';
-@import '../partials/_header';
-@import '../partials/_mobileNav';
-@import '../partials/_home';
-@import '../partials/_footer';
-@import '../partials/_featuredCars';
-@import '../partials/_contact';
-@import '../partials/_selectTags';
-@import '../partials/_CarsCard';
-@import '../partials/_rentModal';
-@import '../partials/_Admin';
-@import '../partials/_AdminCard';
-
+@import "../partials/_normalizer";
+@import "../partials/_hero";
+@import "../partials/_mixins";
+@import "../partials/_header";
+@import "../partials/_mobileNav";
+@import "../partials/_home";
+@import "../partials/_footer";
+@import "../partials/_featuredCars";
+@import "../partials/_contact";
+@import "../partials/_selectTags";
+@import "../partials/_carsCard";
+@import "../partials/_rentModal";
+@import "../partials/_admin";
+@import "../partials/_adminCard";
+@import "../partials/_editModal";
+@import "../partials/_deleteModal";
+@import "../partials/_contactInfo";
 
 // Open Mobile Nav
 
 .openMobileNav {
-    right: 0;
+  right: 0;
 }
-
-
-
-
-
 

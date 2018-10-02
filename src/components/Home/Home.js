@@ -19,8 +19,8 @@ class Home extends Component {
           <h2>RoyalRentals</h2>
           <p>
             Welcome to RoyalRentals, the premier exotic, sports and luxury car rental
-            service. We are located in Charlotte, North Carolina, with delivary
-            options thoughtout the whole eastcoast.
+            service. We are located in Charlotte, North Carolina, with delivery
+            options throughout the whole East Coast.
           </p>
 
           <p>
@@ -34,7 +34,7 @@ class Home extends Component {
           <div className="home-service-hero__desc-wrap">
             <h2>
               We Provide The Best Customer Service Hands Down. Beyond Your
-              Expectations
+              Expectations.
             </h2>
             <p>We Make It Happen And You Leave Satisfied</p>
             <Link to="/inventory">Rent Now</Link>

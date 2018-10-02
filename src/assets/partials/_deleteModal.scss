@@ -1,0 +1,51 @@
+.delete-overlay {
+  background: rgba(0, 0, 0, 0.7);
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+
+.delete-modal {
+  height: 200px;
+  width: 500px;
+  background: #eee;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.15);
+
+  &__question {
+    text-align: center;
+    font: 400 25px "Quicksand";
+  }
+
+  &__btns-wrap {
+    width: 350px;
+    margin: 50px auto 0;
+  }
+  &__btn {
+    letter-spacing: 1px;
+    padding: 10px;
+    width: 150px;
+    font: 400 16px "Quicksand";
+    text-transform: uppercase;
+    color: white;
+    border-radius: 4px;
+    margin: 0 12.5px;
+    &--no {
+      background: #d0363c;
+      &:hover {
+        background: #b61c23;
+      }
+    }
+    &--yes {
+      background: #00b300;
+      &:hover {
+          background: #008f00;
+      }
+    }
+  }
+}

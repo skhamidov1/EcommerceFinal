@@ -13,7 +13,7 @@ const card = props => {
 
       <div className="products-wrap__description-wrap">
         <h2>{props.name}</h2>
-        <p>Price: {props.price}</p>
+        <p>Price: ${props.price.toLocaleString("en")}</p>
         <p>Rent: ${props.rentPrice.toLocaleString("en")} / Day</p>
         <p>Engine: {props.engine}</p>
         <button

@@ -2,26 +2,6 @@ import React, { Component } from "react";
 
 class Contact extends Component {
 
-  // submitForm = e => {
-  //   e.preventDefault();
-  //   const formInfo = {
-  //     firstName: document.getElementById("firstName").value,
-  //     lastName: document.getElementById("lastName").value,
-  //     email: document.getElementById("email").value,
-  //     phone: document.getElementById("phone").value,
-  //     comments: document.getElementById("comments").value
-  //   }
-  //   fetch('http://localhost:3001/form_submission', {
-  //     method: 'post',
-  //     headers: {
-  //       'Content-Type': 'application/json'
-  //     },
-  //     body: JSON.stringify(formInfo)
-  //   }).then(res => console.log(res));
-
-  //   document.querySelector('.form-wrap__form').reset()
-  // };
-
   render() {
     return (
       <main>
@@ -38,7 +18,6 @@ class Contact extends Component {
           <form
             method="post"
             action="http://localhost:3001/form_submission"
-            // onSubmit={this.submitForm}
             className="form-wrap__form">
 
             <div className="form-wrap__name-wrap">

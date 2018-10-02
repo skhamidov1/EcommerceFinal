@@ -1,0 +1,13 @@
+@mixin slidingUnderline() {
+  &::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 1px;
+    background: white;
+    transition: width ease 0.5s;
+  }
+  &:hover::after {
+    width: 100%;
+  }
+}

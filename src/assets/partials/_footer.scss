@@ -1,46 +1,112 @@
 .footer {
   margin: 0 auto;
+  background: #172025;
+  padding: 50px 0 0 135px;
+  display: flex;
+  flex-wrap: wrap;
 
-  &__nav {
-    height: 200px;
-    background: #172025;
-  }
-  &__unord-list {
+  &__headers-list {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-    height: inherit;
-    padding: 0 50px;
-    @media (max-width: 768px) {
-      flex-wrap: wrap;
-    }
-    @media (max-width: 400px) {
-      flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin-right: 135px;
+    width: 100%;
+    li {
+      width: 445px;
+      color: white;
+      font: 400 20px "Quicksand";
+      text-transform: uppercase;
     }
   }
-  &__list-item {
-    margin-left: 50px;
-    padding-right: 50px;
-    @media (max-width: 768px) {
-      text-align: center;
-      width: 150px;
-      margin: 0;
-      padding: 0;
-    }
-    @media (max-width: 400px) {
-      width: 150px;
-      text-align: center;
-      margin: 0;
-      padding: 0;
-    }
+  &__connected-wrap {
+    width: 435px;
 
-    > a {
+    p {
+      width: inherit;
+      font: 400 16px "Quicksand";
+      color: white;
+      letter-spacing: 1px;
+    }
+    form {
+      margin: 20px 0;
+      label {
+        display: block;
+        padding-bottom: 5px;
+        font: 400 16px "Quicksand";
+        color: white;
+      }
+      input {
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        background: #f8f8f8;
+        color: black;
+        font: 400 18px "Quicksand";
+        letter-spacing: 1.5px;
+        margin-right: 5px;
+        height: 35px;
+      }
+    }
+  }
+  &__icon-wrap {
+    display: flex;
+    padding: 20px 0;
+
+    img {
+      width: 40px;
+      height: 40px;
+      margin-right: 40px;
+    }
+  }
+  &__commited-wrap {
+    display: flex;
+    width: 435px;
+    height: 200px;
+    p {
+      width: 300px;
+      font: 400 16px "Quicksand";
+      color: white;
+      letter-spacing: 1px;
+    }
+    img {
+      width: 60px;
+      height: 60px;
+      margin-left: 10px;
+      align-self: center;
+    }
+  }
+  &__nav {
+    ul {
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      height: 200px;
+    }
+    li {
+      margin: 0 50px 20px 0;
+    }
+    a {
       text-decoration: none;
       color: white;
-      font: 400 18px "Quicksand";
-      text-transform: uppercase;
+      font: 400 16px "Quicksand";
       letter-spacing: 1px;
+    }
+  }
+  &__privacy-list {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    padding: 0;
+    margin-right: 135px;
+
+    li,
+    a {
+      text-decoration: none;
+      list-style: none;
+      color: white;
+      font: 400 16px "Quicksand";
+      letter-spacing: 1px;
+      margin: 0 10px;
     }
   }
 }
