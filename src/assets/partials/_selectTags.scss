@@ -5,6 +5,7 @@
   padding: 0 100px;
   display: flex;
   align-items: center;
+
   flex-wrap: wrap;
   @media (max-width: 990px) {
     padding: 20px;
@@ -67,7 +68,6 @@
       justify-content: center;
       align-items: center;
       flex-wrap: wrap;
-      
     }
     // @media (max-width: 650px) {
     //   flex-wrap: wrap;
@@ -83,46 +83,27 @@
   }
   &__type-select,
   &__price-select {
-    font: 400 16px "Quicksand";
-    color: black;
-    appearance: none;
-    letter-spacing: 2px;
-    border: 1px solid black;
+    @include selectButton();
     padding-left: 20px;
-    background: none;
-    border-radius: 0px;
-    width: 200px;
-    height: 40px;
     cursor: pointer;
     margin-top: auto;
     @media (max-width: 768px) {
       margin: 0 auto 10px;
     }
     @media (max-width: 400px) {
-      margin:  0 0 10px;
+      margin: 0 0 10px;
     }
   }
   &__show-all-button {
+    @include selectButton();
     margin: auto auto 0;
-    font: 400 16px "Quicksand";
-    color: black;
-    appearance: none;
-    letter-spacing: 2px;
-    border: 1px solid black;
-    background: none;
-    border-radius: 0px;
-    width: 200px;
-    height: 40px;
     @media (max-width: 768px) {
       margin: 0 auto;
-
     }
   }
   > form {
-    display: flex;
-    align-items: center;
+    @include centerItems();
     width: 100%;
-    justify-content: center;
 
     > .search-bar {
       font: 400 16px "Quicksand";
@@ -130,7 +111,7 @@
       letter-spacing: 2px;
       border: 1px solid black;
       width: 350px;
-      box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.15);
+      @include boxShadow();
       height: 35px;
       @media (max-width: 400px) {
         width: 315px;
@@ -143,13 +124,9 @@
       border-left: none;
       width: 35px;
       height: 35px;
-      background-image: url("/static/img/search.svg");
-      background-repeat: no-repeat;
-      background-size: 25px;
-      background-position: center;
+      background: url("/static/img/search.svg") no-repeat center/25px;
       background-color: rgba(0, 0, 0, 0.8);
-      box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.15);
-      
+      @include boxShadow();
     }
     ::placeholder {
       color: black;

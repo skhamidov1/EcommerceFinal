@@ -1,7 +1,7 @@
 .admin-card {
   width: 100%;
   display: flex;
-  box-shadow: 0px 0px 45px 0px rgba(0, 0, 0, 0.15);
+  @include boxShadow;
   margin-bottom: 20px;
   height: 61.22px;
 
@@ -32,10 +32,8 @@
     }
   }
   &__edit-delete-wrap {
-    display: flex;
+    @include centerItems;
     width: 120px;
-    align-items: center;
-    justify-content: center;
 
     img {
       margin: 0 5px;

@@ -18,7 +18,8 @@ class App extends Component {
     cars: [],
     contactInfo: [],
     filterArray: [],
-    showModal: false
+    showModal: false,
+    filterValues: []
   };
 
   componentDidMount() {
@@ -128,8 +129,28 @@ class App extends Component {
       hamburgerNav.style.right = "-100vw";
     }
   };
+  deleteCar = (id) => {
+    // Deletes car with object id with fetch and updates cars
+    // array in state with spliced one
+    let newCars = [...this.state.cars]
+
+    fetch(`http://localhost:3001/inventory/${id}`, {
+      method: "delete"
+    })
+    let index = newCars.findIndex(x => x._id === id);
+    newCars.splice(index, 1)
+
+    this.setState({
+      cars: newCars
+    })
+  };
+  filterInputValues = (id) => {
+    let selection = [...this.state.cars]
+    let newInput = selection.filter(input => input._id === id)
+    console.log(newInput)
+    this.setState({filterValues: newInput})
+  }
   render() {
-    let contactInfo = this.state.contactInfo
     let cars = [];
 
     if (this.state.filterArray.length > 0) {
@@ -161,10 +182,11 @@ class App extends Component {
             <Route path="/contact" component={Contact} />
 
             <SecuredRoute path='/admin/contactInfo' component={ContactInfo} // Contact Submissions
-            contactInfo={contactInfo}/>}/>
+            contactInfo={this.state.contactInfo}/>}/>
 
             <SecuredRoute exact path='/admin' component={Admin}   // Products 
-          cars={cars}/>
+            cars={cars} filterValue={this.state.filterValues} filteredValFunc={this.filterInputValues}
+            deleteCarFunc={this.deleteCar}/>
           </Switch>
 
           <Footer />

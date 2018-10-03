@@ -449,21 +449,18 @@ table {
 .hero {
   width: 100%;
   height: 525px;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: bottom;
-  background-image: url("/static/img/corvette.jpg");
+  background: url("/static/img/corvette.jpg") bottom/cover no-repeat;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   margin-top: 90px; }
   .hero__overlay {
     top: 0;
     position: absolute;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     flex-direction: column;
     width: 100%;
     height: 525px;
@@ -501,21 +498,19 @@ table {
         text-align: center; } }
   .hero > a {
     font: 400 16px "Quicksand";
+    letter-spacing: 1px;
+    text-align: center;
+    text-transform: uppercase;
     text-decoration: none;
     color: #fff;
-    letter-spacing: 2px;
     border: 1px solid #fff;
     padding: 15px 0;
     width: 200px;
-    text-align: center;
-    text-transform: uppercase;
-    display: block;
     cursor: pointer;
     z-index: 2; }
     .hero > a:hover {
       background: #ce2d28;
-      border: 2px solid #ce2d28;
-      color: white; }
+      border: 1px solid #ce2d28; }
 
 .nav {
   background: #172025;
@@ -585,14 +580,15 @@ table {
   .nav__auth {
     border: 1px solid white;
     color: white;
-    letter-spacing: 1px;
     background: none;
     padding: 5px;
     width: 90px;
     margin-right: 20px;
+    box-shadow: 0px 0px 45px 0px rgba(0, 0, 0, 0.15);
     font: 400 16px "Quicksand";
-    text-transform: uppercase;
-    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.15); }
+    letter-spacing: 1px;
+    text-align: center;
+    text-transform: uppercase; }
     .nav__auth:hover {
       background: #ce2d28;
       border: none; }
@@ -651,9 +647,7 @@ table {
     padding: 0 25px; }
 
 .home-service-hero {
-  background-image: url("/static/img/porsche.jpg");
-  background-size: cover;
-  background-position: center;
+  background: url("/static/img/porsche.jpg") center/cover;
   height: 525px;
   display: flex;
   flex-direction: column;
@@ -736,17 +730,17 @@ table {
       .home-bottom-caption > p {
         text-align: center; } }
   .home-bottom-caption > a {
-    font: 400 16px "Quicksand";
     text-decoration: none;
     color: black;
-    letter-spacing: 2px;
     border: 1px solid black;
     padding: 15px 0;
     width: 200px;
-    text-align: center;
-    text-transform: uppercase;
     display: block;
-    cursor: pointer; }
+    cursor: pointer;
+    font: 400 16px "Quicksand";
+    letter-spacing: 1px;
+    text-align: center;
+    text-transform: uppercase; }
     .home-bottom-caption > a:hover {
       background: #ce2d28;
       border: 2px solid #ce2d28;
@@ -896,10 +890,7 @@ table {
   height: 35px;
   border: none;
   padding: 0;
-  background-image: url("/static/img/arrow.svg");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-color: white;
+  background: white url("/static/img/arrow.svg") no-repeat center/contain;
   position: absolute; }
   @media (max-width: 400px) {
     .prevButton,
@@ -940,20 +931,18 @@ table {
 
 .contact-hero {
   height: 525px;
-  background-image: url("/static/img/cars.jpg");
-  background-position: bottom;
-  background-size: cover;
+  background: url("/static/img/cars.jpg") bottom/cover;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   margin-top: 90px;
   position: relative; }
   .contact-hero__overlay {
     top: 0;
     position: absolute;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     flex-direction: column;
     width: 100%;
     height: 525px;
@@ -1125,11 +1114,11 @@ table {
     appearance: none;
     letter-spacing: 2px;
     border: 1px solid black;
-    padding-left: 20px;
-    background: none;
-    border-radius: 0px;
     width: 200px;
     height: 40px;
+    background: none;
+    border-radius: 0px;
+    padding-left: 20px;
     cursor: pointer;
     margin-top: auto; }
     @media (max-width: 768px) {
@@ -1139,31 +1128,31 @@ table {
       .products-header__type-select, .products-header__price-select {
         margin: 0 0 10px; } }
   .products-header__show-all-button {
-    margin: auto auto 0;
     font: 400 16px "Quicksand";
     color: black;
     appearance: none;
     letter-spacing: 2px;
     border: 1px solid black;
+    width: 200px;
+    height: 40px;
     background: none;
     border-radius: 0px;
-    width: 200px;
-    height: 40px; }
+    margin: auto auto 0; }
     @media (max-width: 768px) {
       .products-header__show-all-button {
         margin: 0 auto; } }
   .products-header > form {
     display: flex;
+    justify-content: center;
     align-items: center;
-    width: 100%;
-    justify-content: center; }
+    width: 100%; }
     .products-header > form > .search-bar {
       font: 400 16px "Quicksand";
       color: black;
       letter-spacing: 2px;
       border: 1px solid black;
       width: 350px;
-      box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.15);
+      box-shadow: 0px 0px 45px 0px rgba(0, 0, 0, 0.15);
       height: 35px; }
       @media (max-width: 400px) {
         .products-header > form > .search-bar {
@@ -1175,12 +1164,9 @@ table {
       border-left: none;
       width: 35px;
       height: 35px;
-      background-image: url("/static/img/search.svg");
-      background-repeat: no-repeat;
-      background-size: 25px;
-      background-position: center;
+      background: url("/static/img/search.svg") no-repeat center/25px;
       background-color: rgba(0, 0, 0, 0.8);
-      box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.15); }
+      box-shadow: 0px 0px 45px 0px rgba(0, 0, 0, 0.15); }
     .products-header > form ::placeholder {
       color: black;
       font: 400 16px "Quicksand"; }
@@ -1232,11 +1218,11 @@ table {
       width: 100%; }
     .products-wrap__card .card-button {
       font: 400 16px "Quicksand";
+      letter-spacing: 1px;
+      text-align: center;
+      text-transform: uppercase;
       color: #ce2d28;
-      letter-spacing: 2px;
       border: 1px solid #ce2d28;
-      background: none;
-      border-radius: 0px;
       width: 150px;
       height: 40px;
       cursor: pointer;
@@ -1279,14 +1265,16 @@ table {
   margin-bottom: 10px; }
 
 .modal-wrap {
+  background: rgba(0, 0, 0, 0.7);
   height: 100vh;
   width: 100vw;
   position: fixed;
-  display: flex;
-  align-items: center;
+  z-index: 5;
   top: 0;
-  background-color: rgba(0, 0, 0, 0.7);
-  z-index: 100; }
+  justify-content: center;
+  align-items: center;
+  display: none;
+  display: flex; }
   .modal-wrap__form {
     margin: 0 auto;
     width: 625px;
@@ -1358,67 +1346,70 @@ table {
     background: #172025;
     border: none;
     color: white;
-    letter-spacing: 1px;
     padding: 10px;
     width: 150px;
     font: 400 16px "Quicksand";
+    letter-spacing: 1px;
+    text-align: center;
     text-transform: uppercase; }
 
-.cards-container {
+.cards-wrap {
   width: 1170px;
   margin: 90px auto 0; }
-  .cards-container .heading-container {
+  .cards-wrap__heading-wrap {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    flex-direction: column;
     padding: 30px 0; }
-    .cards-container .heading-container h1 {
+    .cards-wrap__heading-wrap > h1 {
       margin: 20px 0;
       font: 400 48px "Quicksand";
       text-transform: uppercase; }
-    .cards-container .heading-container .heading-btn {
-      display: inline-block;
-      margin: 0 5px;
-      border: 1px solid black;
-      color: black;
-      letter-spacing: 1px;
-      padding: 10px;
-      font: 400 16px "Quicksand";
-      text-transform: uppercase;
-      box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.15); }
-      .cards-container .heading-container .heading-btn:hover {
-        background: #00b300;
-        color: white;
-        border: 1px solid #00b300; }
-    .cards-container .heading-container .new-car-btn {
-      width: 150px; }
-    .cards-container .heading-container .contact-submission-btn {
-      width: 230px;
-      text-decoration: none; }
-  .cards-container .header-card {
+  .cards-wrap__heading-btn {
+    margin: 0 5px;
+    border: 1px solid black;
+    color: black;
+    padding: 10px;
+    font: 400 16px "Quicksand";
+    letter-spacing: 1px;
+    text-align: center;
+    text-transform: uppercase;
+    box-shadow: 0px 0px 45px 0px rgba(0, 0, 0, 0.15); }
+    .cards-wrap__heading-btn:hover {
+      background: #00b300;
+      color: white;
+      border: 1px solid #00b300; }
+  .cards-wrap .new-car-btn {
+    width: 150px; }
+  .cards-wrap .submissions-btn {
+    width: 230px;
+    text-decoration: none; }
+  .cards-wrap__desc-card {
     width: 1170px;
     display: flex;
     box-shadow: 0px 0px 45px 0px rgba(0, 0, 0, 0.15);
     margin-bottom: 20px;
     height: 61.22px;
-    align-items: center; }
-    .cards-container .header-card p {
+    align-items: center;
+    padding: 0; }
+    .cards-wrap__desc-card li {
       font: 400 16px "Quicksand";
       text-transform: uppercase;
-      width: 120px;
-      text-align: center; }
-    .cards-container .header-card .img-header {
-      width: 120px; }
-    .cards-container .header-card .name-header {
-      width: 211px; }
-    .cards-container .header-card .category-header {
-      width: 300px; }
-    .cards-container .header-card .rent-header {
-      width: 115px; }
-    .cards-container .header-card .id-header {
-      width: 300px; }
-    .cards-container .header-card .modify-header {
-      width: 124px; }
+      text-align: center;
+      list-style: none; }
+  .cards-wrap__img-desc {
+    width: 120px; }
+  .cards-wrap__name-desc {
+    width: 211px; }
+  .cards-wrap__category-desc {
+    width: 300px; }
+  .cards-wrap__rent-desc {
+    width: 115px; }
+  .cards-wrap__id-desc {
+    width: 300px; }
+  .cards-wrap__modify-desc {
+    width: 124px; }
 
 .admin-card {
   width: 100%;
@@ -1446,9 +1437,9 @@ table {
       text-align: left; }
   .admin-card__edit-delete-wrap {
     display: flex;
-    width: 120px;
+    justify-content: center;
     align-items: center;
-    justify-content: center; }
+    width: 120px; }
     .admin-card__edit-delete-wrap img {
       margin: 0 5px;
       height: 30px;
@@ -1462,9 +1453,9 @@ table {
   position: fixed;
   z-index: 5;
   top: 0;
-  display: none;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+  display: none; }
 
 .edit-add-modal-heading {
   height: 70px;
@@ -1482,7 +1473,7 @@ table {
   width: 500px;
   height: 630px;
   position: fixed;
-  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.15); }
+  box-shadow: 0px 0px 45px 0px rgba(0, 0, 0, 0.15); }
   .edit-add-modal-form label {
     display: block;
     color: black;
@@ -1510,15 +1501,16 @@ table {
   .edit-add-modal-form .edit-add-modal-buttons-wrap {
     height: 90px;
     display: flex;
-    align-items: center;
-    justify-content: center; }
+    justify-content: center;
+    align-items: center; }
     .edit-add-modal-form .edit-add-modal-buttons-wrap .edit-add-modal-button {
+      font: 400 16px "Quicksand";
       letter-spacing: 1px;
+      text-align: center;
+      text-transform: uppercase;
       padding: 10px;
       margin: 0 10px;
       width: 150px;
-      font: 400 16px "Quicksand";
-      text-transform: uppercase;
       background: #6686b7;
       color: #fff;
       border-radius: 4px; }
@@ -1536,7 +1528,6 @@ table {
   position: fixed;
   z-index: 5;
   top: 0;
-  display: flex;
   justify-content: center;
   align-items: center;
   display: none; }
@@ -1545,7 +1536,7 @@ table {
   height: 200px;
   width: 500px;
   background: #eee;
-  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.15); }
+  box-shadow: 0px 0px 45px 0px rgba(0, 0, 0, 0.15); }
   .delete-modal__question {
     text-align: center;
     font: 400 25px "Quicksand"; }
@@ -1553,14 +1544,15 @@ table {
     width: 350px;
     margin: 50px auto 0; }
   .delete-modal__btn {
-    letter-spacing: 1px;
     padding: 10px;
     width: 150px;
-    font: 400 16px "Quicksand";
-    text-transform: uppercase;
     color: white;
     border-radius: 4px;
-    margin: 0 12.5px; }
+    margin: 0 12.5px;
+    font: 400 16px "Quicksand";
+    letter-spacing: 1px;
+    text-align: center;
+    text-transform: uppercase; }
     .delete-modal__btn--no {
       background: #d0363c; }
       .delete-modal__btn--no:hover {
@@ -1585,14 +1577,14 @@ table {
     display: flex;
     justify-content: center; }
   .contact-info__back-link {
-    text-align: center;
     border: 1px solid black;
     color: black;
-    letter-spacing: 1px;
     padding: 10px;
     font: 400 16px "Quicksand";
+    letter-spacing: 1px;
+    text-align: center;
     text-transform: uppercase;
-    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 0px 45px 0px rgba(0, 0, 0, 0.15);
     text-decoration: none;
     width: 150px; }
     .contact-info__back-link:hover {
@@ -1631,15 +1623,15 @@ table {
     position: fixed;
     z-index: 5;
     top: 0;
-    display: none;
     justify-content: center;
     align-items: center;
+    display: none;
     margin-left: -135px; }
   .info-card__comments-modal {
     background: whitesmoke;
     width: 500px;
     min-height: 200px;
-    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 0px 45px 0px rgba(0, 0, 0, 0.15);
     display: flex;
     justify-content: center;
     flex-direction: column; }
@@ -1651,12 +1643,13 @@ table {
       text-transform: uppercase;
       word-break: break-all; }
     .info-card__comments-modal button {
+      font: 400 16px "Quicksand";
       letter-spacing: 1px;
+      text-align: center;
+      text-transform: uppercase;
       padding: 10px;
       margin: 10px auto 0;
       width: 100px;
-      font: 400 16px "Quicksand";
-      text-transform: uppercase;
       background: #6686b7;
       color: #fff; }
 

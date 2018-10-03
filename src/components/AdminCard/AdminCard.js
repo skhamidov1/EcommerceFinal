@@ -18,7 +18,8 @@ const adminCard = props => {
       </div>
 
       <div className="admin-card__edit-delete-wrap">
-        <img src="../../../static/img/edit.svg" onClick={() => props.toggleEditModal(carDetails._id)} alt="Edit Card"/>
+        <img src="../../../static/img/edit.svg" onClick={() => {props.toggleEditModal(carDetails._id);
+          props.filterValueFunc(carDetails._id)}} alt="Edit Card"/>
         <img src="../../../static/img/delete.svg" className="admin-card__delete-btn" 
         alt="Delete Card" onClick={() => props.toggleDeleteModal(carDetails._id)}/>
       </div>

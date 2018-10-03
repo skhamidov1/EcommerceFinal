@@ -1,20 +1,14 @@
 .contact-hero {
   height: 525px;
-  background-image: url("/static/img/cars.jpg");
-  background-position: bottom;
-  background-size: cover;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: url("/static/img/cars.jpg") bottom/cover;
+  @include centerItems;
   margin-top: 90px;
   position: relative;
 
   &__overlay {
     top: 0;
     position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include centerItems;
     flex-direction: column;
     width: 100%;
     height: 525px;
@@ -114,9 +108,7 @@
   
 }
 .contact-bottom-caption {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include centerItems;
   flex-direction: column;
   height: 250px;
   @media (max-width: 400px) {

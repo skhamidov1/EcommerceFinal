@@ -10,7 +10,10 @@ function SecuredRoute(props) {
           auth0Client.signIn();
           return <div></div>;
         }
-        return <Component contactInfo = {props.contactInfo} cars={props.cars}/>
+        return <Component contactInfo = {props.contactInfo}
+         deleteCarFunc={props.deleteCarFunc}
+        cars={props.cars} filterValue={props.filterValue}
+        filterValFunc={props.filteredValFunc}/>
     }} />
   );
 }

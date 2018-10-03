@@ -25,9 +25,7 @@
   }
 }
 .home-service-hero {
-  background-image: url('/static/img/porsche.jpg');
-  background-size: cover;
-  background-position: center;
+  background: url('/static/img/porsche.jpg') center/cover;
   height: 525px;
   display: flex;
   flex-direction: column;
@@ -123,17 +121,14 @@
     }
   }
   > a {
-    font: 400 16px "Quicksand";
     text-decoration: none;
     color: black;
-    letter-spacing: 2px;
     border: 1px solid black;
     padding: 15px 0;
     width: 200px;
-    text-align: center;
-    text-transform: uppercase;
     display: block;
     cursor: pointer;
+    @include buttonStyle();
     &:hover {
       background: #ce2d28;
       border: 2px solid #ce2d28;

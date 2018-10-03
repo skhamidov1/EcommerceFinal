@@ -1,78 +1,71 @@
-.cards-container {
+.cards-wrap {
   width: 1170px;
   margin: 90px auto 0;
 
+  &__heading-wrap {
+    @include centerItems;
+    flex-direction: column;
+    padding: 30px 0;
 
-  .heading-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 30px 0;
-
-    h1 {
+    > h1 {
       margin: 20px 0;
       font: 400 48px "Quicksand";
       text-transform: uppercase;
     }
-
-    .heading-btn,  {
-      display: inline-block;
-      margin: 0 5px;
-      border: 1px solid black;
-      color: black;
-      letter-spacing: 1px;
-      padding: 10px;
-      font: 400 16px "Quicksand";
-      text-transform: uppercase;
-      box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.15);
-      &:hover {
-        background: #00b300;
-        color: white;
-        border: 1px solid #00b300;
-      }
+  }
+  &__heading-btn {
+    margin: 0 5px;
+    border: 1px solid black;
+    color: black;
+    padding: 10px;
+    @include buttonStyle;
+    @include boxShadow;
+    &:hover {
+      background: #00b300;
+      color: white;
+      border: 1px solid #00b300;
     }
-    .new-car-btn {
-      width: 150px;
-    }
-    .contact-submission-btn {
-      width: 230px;
-      text-decoration: none;
-    }
-
+  }
+  .new-car-btn {
+    width: 150px;
+  }
+  .submissions-btn {
+    width: 230px;
+    text-decoration: none;
   }
 
-  .header-card {
+  &__desc-card {
     width: 1170px;
     display: flex;
-    box-shadow: 0px 0px 45px 0px rgba(0, 0, 0, 0.15);
+    @include boxShadow;
     margin-bottom: 20px;
     height: 61.22px;
     align-items: center;
+    padding: 0;
 
-    p {
+    li {
       font: 400 16px "Quicksand";
       text-transform: uppercase;
-      width: 120px;
       text-align: center;
+      list-style: none;
     }
-
-    .img-header {
-      width: 120px;
-    }
-    .name-header {
-      width: 211px;
-    }
-    .category-header {
-      width: 300px;
-    }
-    .rent-header {
-      width: 115px;
-    }
-    .id-header {
-      width: 300px;
-    }
-    .modify-header {
-      width: 124px;
-    }
+  }
+  &__img-desc {
+    width: 120px;
+  }
+  &__name-desc {
+    width: 211px;
+  }
+  &__category-desc {
+    width: 300px;
+  }
+  &__rent-desc {
+    width: 115px;
+  }
+  &__id-desc {
+    width: 300px;
+  }
+  &__modify-desc {
+    width: 124px;
   }
 }

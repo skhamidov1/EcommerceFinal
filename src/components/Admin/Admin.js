@@ -17,20 +17,13 @@ const admin = props => {
   const toggleDeleteModal = id => {
     let deleteOverlay = document.querySelector(".delete-overlay")
     deleteOverlay.style.display = deleteOverlay.style.display === "flex" ? "none" : "flex";
-    document.querySelector(".delete-overlay").setAttribute("data-objectId", id)
+    document.querySelector(".delete-overlay").setAttribute("data-objectid", id)
   };
 
   const toggleAddModal = id => {
     // Opens and Closes Add Modal
     let addOverlay = document.getElementById("add-modal-overlay")
     addOverlay.style.display = addOverlay.style.display === "flex" ? "none" : "flex";
-  };
-
-  const deleteCar = (id) => {
-    // Deletes car with object id
-    fetch(`http://localhost:3001/inventory/${id}`, {
-      method: "delete"
-    }).then(toggleDeleteModal)
   };
 
   const card = props.cars.map(car => {
@@ -40,6 +33,7 @@ const admin = props => {
         key={car._id}
         toggleEditModal={toggleEditModal}
         toggleDeleteModal={toggleDeleteModal}
+        filterValueFunc={props.filterValFunc}
       />
     );
   });
@@ -48,33 +42,35 @@ const admin = props => {
     <div>
       <DeleteModal
       toggleDeleteModal={toggleDeleteModal}
-      deleteCarFunction={deleteCar}
+      deleteCarFunction={props.deleteCarFunc}
+      /> 
+      <EditModal filterValue={props.filterValue}
+      toggleEditModal={toggleEditModal}
       />
-      <EditModal toggleEditModal={toggleEditModal}
-       />
-       <AddModal toggleAddModal={toggleAddModal}/>
-      <div className="cards-container">
-        <div className="heading-container">
+
+      <AddModal toggleAddModal={toggleAddModal}/>
+      <div className="cards-wrap">
+        <div className="cards-wrap__heading-wrap">
           <h1>Manage Inventory</h1>
           <div>
-            <button className="new-car-btn heading-btn"
+            <button className="cards-wrap__heading-btn new-car-btn"
             onClick={toggleAddModal}>Add New Car</button>
             <Link
               to="/admin/contactInfo"
               role="button"
-              className="contact-submission-btn heading-btn">
+              className="cards-wrap__heading-btn submissions-btn">
               Contact Submissions
             </Link>
           </div>
         </div>
-        <div className="header-card">
-          <p className="img-header">Image</p>
-          <p className="name-header">Name</p>
-          <p className="category-header">Category</p>
-          <p className="rent-header">Rent Price</p>
-          <p className="id-header">Id</p>
-          <p className="modify-header">Modify</p>
-        </div>
+        <ul className="cards-wrap__desc-card">
+          <li className="cards-wrap__img-desc">Image</li>
+          <li className="cards-wrap__name-desc">Name</li>
+          <li className="cards-wrap__category-desc">Category</li>
+          <li className="cards-wrap__rent-desc">Rent Price</li>
+          <li className="cards-wrap__id-desc">Id</li>
+          <li className="cards-wrap__modify-desc">Modify</li>
+        </ul>
         {card}
       </div>
     </div>
