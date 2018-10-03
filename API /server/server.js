@@ -4,6 +4,7 @@ const {contactInfo} = require("./models/contactInfo")
 const express = require("express")
 const bodyParser = require('body-parser')
 const cors = require('cors')
+const _ = require('lodash')
 const app = express()
 const {ObjectID} = require('mongodb')
 
@@ -100,49 +101,16 @@ app.delete("/inventory/:id", (req, res) => {
 
 // UPDATE
 app.put("/inventory/:id", (req, res) => {
-    const ids = req.params.id
-    const {name, description, price,
-        rentPrice, engine,category, image} = req.body
+    const id = req.params.id
+    const body = _.pick(req.body, [
+        "name", "description", "price",
+        "rentPrice", "engine","category", "image"
+    ])
 
-    allCars.findByIdAndUpdate(ids).then(cars => {
+    allCars.findByIdAndUpdate(id, {$set: body}, {new: true}).then(cars => {
         if(!cars) {
             return res.status(400).send("Unable To Update Car");
         } 
-        if(name !== "") {
-            cars.set({
-                name
-            })
-        }
-        if(description !== "") {
-            cars.set({
-                description
-            })
-        }
-        if(price !== "") {
-            cars.set({
-                price
-            })
-        }
-        if(rentPrice !== "") {
-            cars.set({
-                rentPrice
-            })
-        }
-        if(engine !== "") {
-            cars.set({
-                engine
-            })
-        }
-        if(category !== "") {
-            cars.set({
-                category
-            })
-        }
-        if(image !== "") {
-            cars.set({
-                image
-            })
-        }
         cars.save().then(updatedCar => console.log(updatedCar)
     )
     }).catch(err => res.status(400).send(err))
