@@ -1,9 +1,9 @@
 // CONTACT INFO
 
 .contact-info {
-  width: 100%;
-  width: 1170px;
+  max-width: 1170px;
   margin: 90px auto 0;
+
   &__heading-wrap {
     padding: 30px 0;
     h1 {
@@ -11,6 +11,14 @@
       margin: 20px 0;
       font: 400 48px "Quicksand";
       text-transform: uppercase;
+    }
+    @media (max-width: 1170px) {
+      margin-bottom: 20px;
+      width: 100%;
+      padding: 0;
+      > h1 {
+        font-size: 40px;
+      }
     }
   }
   &__back-link-wrap {
@@ -34,6 +42,13 @@
 }
 
 // CONTACT INFO CARD
+.info-card-wrap {
+  width: 100%;
+  @media (max-width: 1170px) {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
 
 .info-card {
   width: 100%;
@@ -41,13 +56,24 @@
   @include boxShadow;
   margin-bottom: 20px;
   height: 60px;
+  @media (max-width: 1170px) {
+    height: 200px;
+    width: 300px;
+    flex-direction: column;
+    margin: 0 auto 20px;
+  }
 
-  &__unord-list {
+  &__unord-list,
+  &__unord-list-desc {
     display: flex;
     width: 100%;
     padding: 0;
     align-items: center;
     justify-content: space-around;
+    @media (max-width: 1170px) {
+      flex-direction: column;
+      height: 100%;
+    }
 
     li {
       list-style: none;
@@ -65,10 +91,18 @@
       }
     }
   }
+  &__unord-list-desc {
+    @media (max-width: 1170px) {
+      display: none;
+    }
+  }
 
   &__overlay {
     @include blackOverlay;
     margin-left: -135px;
+    @media (max-width: 1170px) {
+      margin: 0;
+    }
   }
 
   &__comments-modal {
@@ -96,5 +130,10 @@
       background: #6686b7;
       color: #fff;
     }
+  }
+}
+.temp-card {
+  @media (max-width: 1170px) {
+    display: none;
   }
 }

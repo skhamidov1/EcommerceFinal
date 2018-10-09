@@ -47,7 +47,6 @@ const admin = props => {
       <EditModal filterValue={props.filterValue}
       toggleEditModal={toggleEditModal}
       />
-
       <AddModal toggleAddModal={toggleAddModal}/>
       <div className="cards-wrap">
         <div className="cards-wrap__heading-wrap">

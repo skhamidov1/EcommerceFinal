@@ -25,8 +25,8 @@ const contactInfo = props => {
           </Link>
         </div>
       </div>
-      <div className="info-card">
-        <ul className="info-card__unord-list">
+      <div className="info-card temp-card">
+        <ul className="info-card__unord-list-desc">
           <li>First Name</li>
           <li>Last Name</li>
           <li>Email</li>
@@ -34,7 +34,7 @@ const contactInfo = props => {
           <li>Comments</li>
         </ul>
       </div>
-      <div>{contactCard}</div>
+      <div className="info-card-wrap">{contactCard}</div>
     </div>
   );
 };

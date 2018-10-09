@@ -1,4 +1,4 @@
-.diplayFlex {
+.diplayFlex {   // 3 Classes for markup
   display: flex;
 }
 .margin-right {
@@ -10,7 +10,7 @@
 
 .modal-wrap {
   @include blackOverlay;
-  display: flex;
+  display: none;
 
   &__form {
     margin: 0 auto;

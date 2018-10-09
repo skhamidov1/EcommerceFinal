@@ -42,7 +42,7 @@
     position: absolute;
     top: 0;
     background: rgba(0, 0, 0, 0.5);
-    height: 525px;
+    height: 100%;
     width: 100%;
     z-index: 1;
   }
@@ -131,7 +131,7 @@
     @include buttonStyle();
     &:hover {
       background: #ce2d28;
-      border: 2px solid #ce2d28;
+      border: 1px solid #ce2d28;
       color: white;
     }
   }

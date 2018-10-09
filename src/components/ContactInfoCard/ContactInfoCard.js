@@ -4,7 +4,7 @@ const contactInfoCard = props => {
   const { cardInfo } = props;
 
   return (
-    <div>
+    <React.Fragment>
       <div className="info-card">
         <ul className="info-card__unord-list">
           <li>{cardInfo.firstName}</li>
@@ -12,7 +12,9 @@ const contactInfoCard = props => {
           <li>{cardInfo.email}</li>
           <li>{cardInfo.phone}</li>
           <li>
-            <a onClick={() => props.toggleComments(cardInfo._id)}>Show Comments</a>
+            <a onClick={() => props.toggleComments(cardInfo._id)}>
+              Show Comments
+            </a>
           </li>
         </ul>
       </div>
@@ -21,12 +23,13 @@ const contactInfoCard = props => {
           <p>{cardInfo.comments}</p>
           <button
             type="button"
-            onClick={() => props.toggleComments(cardInfo._id)}>
+            onClick={() => props.toggleComments(cardInfo._id)}
+          >
             Close
           </button>
         </div>
       </div>
-    </div>
+    </React.Fragment>
   );
 };
 

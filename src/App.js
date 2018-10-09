@@ -18,8 +18,7 @@ class App extends Component {
     cars: [],
     contactInfo: [],
     filterArray: [],
-    showModal: false,
-    filterValues: []
+    filterValue: []
   };
 
   componentDidMount() {
@@ -34,30 +33,31 @@ class App extends Component {
   }
 
   showImageDescription = e => {
-    // Adds a display property to the cars array to add description overlay
-    let newCars = [];
-    newCars = this.state.cars.map(car => {
-      return car._id === e.target.dataset.id
-        ? { ...car, display: !car.display }
-        : car;
-    });
+    // Adds a display property to the cars and filtered array to add description overlay
+    let filteredCars = [];
+    let normalCars = [];
 
-    this.setState({
-      cars: newCars
-    });
-    
-    // Adds a display property to the filtered array to add description overlay
-    let showFilteredOverlay = [];
     if (this.state.filterArray.length > 0) {
-      showFilteredOverlay = this.state.filterArray.map(car => {
-        return car.carId === Number(e.target.dataset.id)
+      filteredCars = this.state.filterArray.map(car => {
+        return car._id === e.target.dataset.id
+          ? { ...car, display: !car.display }
+          : car;
+      });
+
+      this.setState({
+        filterArray: filteredCars
+      });
+    } else {
+      normalCars = this.state.cars.map(car => {
+        return car._id === e.target.dataset.id
           ? { ...car, display: !car.display }
           : car;
       });
       this.setState({
-        filterArray: showFilteredOverlay
+        cars: normalCars
       });
     }
+  
   };
   filterSelect = () => {
     let filterPrice = document.querySelector(".products-header__price-select")
@@ -65,7 +65,7 @@ class App extends Component {
     let filterCar = document.querySelector(".products-header__type-select")
       .value;
 
-    let newCarsArray = this.state.cars;
+    let newCarsArray = [...this.state.cars]
 
     if (filterCar !== "None") {
       newCarsArray = newCarsArray.filter(car => car.category === filterCar);
@@ -99,6 +99,7 @@ class App extends Component {
       });
     }
   };
+
   searchBarHandler = e => {
     e.preventDefault();
     let searchInput = document.querySelector(".search-bar").value;
@@ -114,19 +115,13 @@ class App extends Component {
     document.querySelector(".search-bar").value = "";
   };
 
-  showModalFunction = e => {
-    this.setState({
-      showModal: !this.state.showModal
-    });
-  };
+  openNav = () => { // opens mobile nav
+    let mobileNav = document.querySelector(".mobileNav");
 
-  openNav = () => {
-    var hamburgerNav = document.querySelector(".mobileNav");
-
-    if (hamburgerNav.style.right === "-100vw") {
-      hamburgerNav.style.right = "0";
+    if (mobileNav.style.right === "-100vw") {
+      mobileNav.style.right = "0";
     } else {
-      hamburgerNav.style.right = "-100vw";
+      mobileNav.style.right = "-100vw";
     }
   };
   deleteCar = (id) => {
@@ -144,12 +139,13 @@ class App extends Component {
       cars: newCars
     })
   };
-  filterInputValues = (id) => {
+
+  filterInputValues = (id) => {   // contains the object with the information based on the car user clicks on 
     let selection = [...this.state.cars]
     let newInput = selection.filter(input => input._id === id)
-    console.log(newInput)
-    this.setState({filterValues: newInput})
+    this.setState({filterValue: newInput})
   }
+
   render() {
     let cars = [];
 
@@ -172,7 +168,7 @@ class App extends Component {
 
             <Route exact path="/" component={Home} />
 
-            <Route path="/inventory" render={() => <Products showModalFunc={this.showModalFunction} cars={cars}
+            <Route path="/inventory" render={() => <Products cars={cars}
             showImageDescription = {this.showImageDescription}
             modalShow = {this.state.showModal}
             searchBar = {this.searchBarHandler}
@@ -185,7 +181,7 @@ class App extends Component {
             contactInfo={this.state.contactInfo}/>}/>
 
             <SecuredRoute exact path='/admin' component={Admin}   // Products 
-            cars={cars} filterValue={this.state.filterValues} filteredValFunc={this.filterInputValues}
+            cars={cars} filterValue={this.state.filterValue} filteredValFunc={this.filterInputValues}
             deleteCarFunc={this.deleteCar}/>
           </Switch>
 

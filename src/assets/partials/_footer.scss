@@ -1,34 +1,57 @@
 .footer {
   margin: 0 auto;
   background: #172025;
-  padding: 50px 0 0 135px;
+  padding: 50px 100px 0;
   display: flex;
   flex-wrap: wrap;
-
-  &__headers-list {
-    display: flex;
-    list-style: none;
-    padding: 0;
-    margin-right: 135px;
-    width: 100%;
-    li {
-      width: 445px;
-      color: white;
-      font: 400 20px "Quicksand";
-      text-transform: uppercase;
+  justify-content: center;
+// 
+  @media (max-width: 768px) {
+    padding: 50px 10px 0;
+    justify-content: center;
+  }
+  h2,
+  p {
+    // For all h2's in the footer
+    @media (max-width: 768px) {
+      text-align: center;
     }
   }
+  p {
+    @media (max-width: 768px) {
+      text-align: center;
+      margin: 1rem auto;
+    }
+  }
+
   &__connected-wrap {
     width: 435px;
+    @media (max-width: 768px) {
+      width: 400px;
+    }
+
+    h2 {
+      width: 100%;
+      color: white;
+      font: 400 20px "Quicksand";
+      margin: 0;
+      text-transform: uppercase;
+    }
 
     p {
-      width: inherit;
+      width: 100%;
       font: 400 16px "Quicksand";
       color: white;
       letter-spacing: 1px;
     }
     form {
       margin: 20px 0;
+      div {
+        max-width: 290px;
+        @media (max-width: 768px) {
+          margin: 20px auto;
+        }
+      }
       label {
         display: block;
         padding-bottom: 5px;
@@ -50,23 +73,41 @@
   &__icon-wrap {
     display: flex;
     padding: 20px 0;
+    @media (max-width: 768px) {
+      justify-content: center;
+    }
 
     img {
       width: 40px;
       height: 40px;
       margin-right: 40px;
+      @media (max-width: 768px) {
+        margin: 0 20px;
+      }
     }
   }
   &__commited-wrap {
-    display: flex;
     width: 435px;
-    height: 200px;
+    @media (max-width: 768px) {
+      width: 400px;
+    }
+
+    h2 {
+      width: 100%;
+      color: white;
+      font: 400 20px "Quicksand";
+      text-transform: uppercase;
+      height: 25px;
+      margin: 0;
+    }
+
     p {
       width: 300px;
       font: 400 16px "Quicksand";
       color: white;
       letter-spacing: 1px;
     }
+
     img {
       width: 60px;
       height: 60px;
@@ -74,17 +115,45 @@
       align-self: center;
     }
   }
+
+  &__commited-description-wrap {
+    display: flex;
+    @media (max-width: 768px) {
+      display: block;
+      text-align: center;
+    }
+  }
   &__nav {
+    @media (max-width: 768px) {
+      width: 400px;
+    }
+    h2 {
+      width: 100%;
+      color: white;
+      font: 400 20px "Quicksand";
+      text-transform: uppercase;
+      height: 25px;
+      margin: 0;
+    }
     ul {
       padding: 0;
       display: flex;
       flex-direction: column;
       flex-wrap: wrap;
       height: 200px;
+      width: 325px;
+      @media (max-width: 768px) {
+        margin: 1rem auto;
+        align-items: center;
+        width: 250px;
+      }
     }
+
     li {
-      margin: 0 50px 20px 0;
+      margin: 0 0 20px 0;
+      width: 100px;
     }
+
     a {
       text-decoration: none;
       color: white;
@@ -97,7 +166,6 @@
     width: 100%;
     justify-content: center;
     padding: 0;
-    margin-right: 135px;
 
     li,
     a {
@@ -107,6 +175,10 @@
       font: 400 16px "Quicksand";
       letter-spacing: 1px;
       margin: 0 10px;
+      @media (max-width: 768px) {
+        display: block;
+        text-align: center;
+      }
     }
   }
 }

@@ -78,7 +78,7 @@ const rentModal = (props) => {
         </div>
         
         <div className="modal-wrap__button-wrap">
-        <button onClick = {props.modalShow} className="modal-wrap__cancel">
+        <button onClick = {props.showRentModal} className="modal-wrap__cancel">
             Cancel
         </button>
 

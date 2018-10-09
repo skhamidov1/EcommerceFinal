@@ -1,5 +1,4 @@
 .mobileNav {
-  display: none;
   position: fixed;
   top: 90px;
   height: 100vh;
@@ -12,8 +11,9 @@
   }
 
   &__unord-list {
-    padding: 0 0 90px;
-    height: inherit;
+    margin: 0;
+    padding: 0;
+    height: 75%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -29,6 +29,25 @@
       &:hover {
         border-bottom: 1px solid black;
         padding-bottom: 5px;
+      }
+    }
+  }
+  &__auth {
+    color: white;
+    background: #00b300;
+    height: 35px;
+    width: 100px;
+    margin: 20px auto;
+    display: block;
+    @include boxShadow();
+    @include buttonStyle();
+    &:hover {
+      background: #007d00;
+    }
+    &--logout {
+      background: #ce2d28;
+      &:hover {
+        background: #901f1c;
       }
     }
   }

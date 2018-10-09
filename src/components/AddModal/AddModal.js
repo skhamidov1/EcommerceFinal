@@ -1,7 +1,6 @@
 import React from "react";
 
 const addModal = props => {
-
   return (
     <div className="edit-add-modal-overlay" id="add-modal-overlay">
       <form
@@ -48,9 +47,7 @@ const addModal = props => {
           >
             Cancel
           </button>
-          <button className="edit-add-modal-button">
-            Add
-          </button>
+          <button className="edit-add-modal-button">Add</button>
         </div>
       </form>
     </div>

@@ -4,20 +4,20 @@ class featuredCars extends Component {
   state = {
     i: 0,
     images: [
-      "../../../static/img/ferrari2.jpg",
-      "../../../static/img/McLaren.jpg",
-      "../../../static/img/zl1.jpg",
-      "../../../static/img/r8.jpg",
+      "static/img/ferrari2.jpg",
+      "static/img/McLaren.jpg",
+      "static/img/zl1.jpg",
+      "static/img/r8.jpg",
+      "static/img/gtrNismo.jpg",
+      "static/img/zr1.jpg"
     ],
-    currentImageURLs: [],
-
+    currentImageURLs: []
   };
 
   loadImages = i => {
-  
     this.setState({
-      currentImageURLs: [this.state.images[i], this.state.images[i + 1]],
-    })
+      currentImageURLs: [this.state.images[i], this.state.images[i + 1]]
+    });
     if (i >= this.state.images.length - 2) {
       this.setState({
         i: 0
@@ -25,35 +25,33 @@ class featuredCars extends Component {
     } else {
       this.setState({
         i: this.state.i + 2
-      })
+      });
     }
-  }
+  };
 
   componentDidMount() {
     this.loadImages(this.state.i);
-  }
 
+  }
   goToNextSlide = () => {
     this.loadImages(this.state.i);
   };
 
   render() {
-  
     return (
       <div className="feat-cars-wrap">
         <h2>Featured Rentals</h2>
         <button
           aria-label="Previous Image"
-            className="prevButton"
-            onClick={this.goToNextSlide}
-          />
-          <button
-            aria-label="Next Image"
-            className="nextButton"
-            onClick={this.goToNextSlide}
-          />
+          className="prevButton"
+          onClick={this.goToNextSlide}
+        />
+        <button
+          aria-label="Next Image"
+          className="nextButton"
+          onClick={this.goToNextSlide}
+        />
         <div>
-         
           <div className="feat-cars-wrap__row">
             <div className="feat-cars-wrap__img-wrap">
               <img

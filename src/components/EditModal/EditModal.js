@@ -4,19 +4,21 @@ const editModal = (props) => {
   // const { carDetails } = props
 
   const getAttribute = () => {
-    const id = document.querySelector(".edit-add-modal-overlay").getAttribute("data-objectId")
+    const id = document.querySelector(".edit-add-modal-overlay").getAttribute("data-objectid")
     return id
   }
 
   const getPutInfo = (id) => {
+    const editForm = document.getElementById("edit-modal-form")
+
     const putInfo = {
-      image: document.getElementById("image").value,
-      name: document.getElementById("name").value,
-      category: document.getElementById("category").value,
-      rentPrice: document.getElementById("rentPrice").value,
-      price: document.getElementById("price").value,    
-      engine: document.getElementById("engine").value,
-      description: document.getElementById("description").value
+      image: editForm.elements[0].value,
+      name: editForm.elements[1].value,
+      category: editForm.elements[2].value,
+      rentPrice: editForm.elements[3].value,
+      price: editForm.elements[4].value,
+      engine: editForm.elements[5].value,
+      description: editForm.elements[6].value,
     }
     console.log(putInfo)
     fetch(`http://localhost:3001/inventory/${id}`, {
@@ -30,8 +32,8 @@ const editModal = (props) => {
   }
   
   return (
-    <div className="edit-add-modal-overlay" data-objectId="">
-      <form className="edit-add-modal-form">
+    <div className="edit-add-modal-overlay" data-objectid="">
+      <form className="edit-add-modal-form" id="edit-modal-form">
         <div className="edit-add-modal-heading">
           <h2>Fill out the information to update car info</h2>
         </div>
