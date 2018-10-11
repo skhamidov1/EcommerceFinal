@@ -20,7 +20,7 @@ const admin = props => {
     document.querySelector(".delete-overlay").setAttribute("data-objectid", id)
   };
 
-  const toggleAddModal = id => {
+  const toggleAddModal = () => {
     // Opens and Closes Add Modal
     let addOverlay = document.getElementById("add-modal-overlay")
     addOverlay.style.display = addOverlay.style.display === "flex" ? "none" : "flex";
