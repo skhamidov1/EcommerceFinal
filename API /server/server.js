@@ -6,6 +6,12 @@ const mysql = require("mysql");
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
+app.use(
+  bodyParser.urlencoded({
+    //For contact form info
+    extended: true
+  })
+);
 
 const connection = mysql.createConnection({
   host: "road2hire.ninja",
@@ -26,6 +32,21 @@ app.get("/inventory", (req, res) => {
     res.send(rows);
   });
 });
+
+app.get("/inventory/:id", (req, res) => {
+  const id = Number(req.params.id);
+  connection.query(`SELECT * FROM Cars WHERE carId = ${id}`, (err, rows) => {
+    if (err) throw err;
+    res.send(rows);
+  });
+});
+
+app.get("/form_submission", (req, res) => {
+    connection.query("SELECT * FROM  UserContact", (err, rows) => {
+      if (err) throw err;
+      res.send(rows);
+    });
+  });
 // POST NEW CAR
 app.post("/inventory", (req, res) => {
   const {
@@ -38,17 +59,58 @@ app.post("/inventory", (req, res) => {
     image
   } = req.body;
 
-  const insertQuery =
-    "INSERT INTO Cars (name, description, price,rentPrice, engine, category, image) VALUES ?";
-  const values = [
-    [name, description, price, rentPrice, engine, category, image]
-  ];
-  connection.query(insertQuery, [values], (err, rows) => {
-    if (err) {
-      console.log(err);
-    } else {
-      res.status(200).send("One Row Inserted");
-    }
+  const insertQuery = `INSERT INTO Cars (name, description, price,rentPrice, engine, category, image)
+        VALUES ("${name}","${description}","${price}","${rentPrice}","${engine}","${category}","${image}")`;
+
+  connection.query(insertQuery, (err, rows) => {
+    if (err) throw err;
+    res.status(200).redirect("http://localhost:3000/admin");
+  });
+});
+
+app.post("/form_submission", (req, res) => {
+    const {
+      firstName,
+      lastName,
+      email,
+      phone,
+      comments,
+    } = req.body;
+  
+    const insertQuery = `INSERT INTO UserContact (firstName, lastName, email, phone, comments)
+          VALUES ("${firstName}","${lastName}","${email}","${phone}","${comments}")`;
+  
+    connection.query(insertQuery, (err, rows) => {
+      if (err) throw err;
+      res.status(200).redirect("http://localhost:3000/contact");
+    });
+  });
+
+app.delete("/inventory/:id", (req, res) => {
+  const id = req.params.id;
+  connection.query(`DELETE FROM UserContact WHERE carId = ${id}`, (err, rows) => {
+    if (err) throw err;
+    res.status(200).send("One Row Deleted");
+  });
+});
+
+app.put("/inventory/:id", (req, res) => {
+  const id = req.params.id;
+  const {
+    name,
+    description,
+    price,
+    rentPrice,
+    engine,
+    category,
+    image
+  } = req.body;
+  const insertQuery = `UPDATE Cars SET name = "${name}", description = "${description}", price = "${price}",
+      rentPrice = "${rentPrice}", engine = "${engine}", category = "${category}", image = "${image}" WHERE carId = ${id}`;
+
+  connection.query(insertQuery, (err, rows) => {
+    if (err) throw err;
+    res.status(200).send("One Row Updated");
   });
 });
 
