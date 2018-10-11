@@ -23,11 +23,11 @@ class App extends Component {
 
   componentDidMount() {
     
-    fetch("http://localhost:3001/inventory")
+    fetch("http://localhost:3306/inventory")
       .then(response => response.json())
       .then(json => this.setState({cars: json}));
 
-    fetch("http://localhost:3001/form_submission")
+    fetch("http://localhost:3306/form_submission")
       .then(response => response.json())
       .then(json => this.setState({contactInfo: json}));
   }
@@ -39,7 +39,7 @@ class App extends Component {
 
     if (this.state.filterArray.length > 0) {
       filteredCars = this.state.filterArray.map(car => {
-        return car._id === e.target.dataset.id
+        return car.carId === e.target.dataset.id
           ? { ...car, display: !car.display }
           : car;
       });
@@ -49,7 +49,7 @@ class App extends Component {
       });
     } else {
       normalCars = this.state.cars.map(car => {
-        return car._id === e.target.dataset.id
+        return car.carId === e.target.dataset.id
           ? { ...car, display: !car.display }
           : car;
       });
@@ -129,10 +129,10 @@ class App extends Component {
     // array in state with spliced one
     let newCars = [...this.state.cars]
 
-    fetch(`http://localhost:3001/inventory/${id}`, {
+    fetch(`http://localhost:3306/inventory/${id}`, {
       method: "delete"
     })
-    let index = newCars.findIndex(x => x._id === id);
+    let index = newCars.findIndex(x => x.carId === Number(id));
     newCars.splice(index, 1)
 
     this.setState({
@@ -142,11 +142,12 @@ class App extends Component {
 
   filterInputValues = (id) => {   // contains the object with the information based on the car user clicks on 
     let selection = [...this.state.cars]
-    let newInput = selection.filter(input => input._id === id)
+    let newInput = selection.filter(input => input.carId === id)
     this.setState({filterValue: newInput})
   }
 
   render() {
+   
     let cars = [];
 
     if (this.state.filterArray.length > 0) {

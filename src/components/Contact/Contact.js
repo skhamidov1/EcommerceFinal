@@ -17,7 +17,7 @@ class Contact extends Component {
 
           <form
             method="post"
-            action="http://localhost:3001/form_submission"
+            action="http://localhost:3306/form_submission"
             className="form-wrap__form">
 
             <div className="form-wrap__name-wrap">

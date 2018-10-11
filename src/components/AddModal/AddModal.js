@@ -5,7 +5,7 @@ const addModal = props => {
     <div className="edit-add-modal-overlay" id="add-modal-overlay">
       <form
         method="post"
-        action="http://localhost:3001/inventory"
+        action="http://localhost:3306/inventory"
         className="edit-add-modal-form"
       >
         <div className="edit-add-modal-heading">

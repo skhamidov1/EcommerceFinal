@@ -21,7 +21,7 @@ const editModal = (props) => {
       description: editForm.elements[6].value,
     }
     console.log(putInfo)
-    fetch(`http://localhost:3001/inventory/${id}`, {
+    fetch(`http://localhost:3306/inventory/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'

@@ -14,14 +14,14 @@ const adminCard = props => {
         <p className="name-align">{carDetails.name}</p>
         <p>{carDetails.category}</p>
         <p>$ {carDetails.rentPrice.toLocaleString("en")} </p>
-        <p className="admin-card__id"> {carDetails._id}</p>
+        <p className="admin-card__id"> {carDetails.carId}</p>
       </div>
 
       <div className="admin-card__edit-delete-wrap">
-        <img src="/static/img/edit.svg" onClick={() => {props.toggleEditModal(carDetails._id);
-          props.filterValueFunc(carDetails._id)}} alt="Edit Card"/>
+        <img src="/static/img/edit.svg" onClick={() => {props.toggleEditModal(carDetails.carId);
+          props.filterValueFunc(carDetails.carId)}} alt="Edit Card"/>
         <img src="/static/img/delete.svg" className="admin-card__delete-btn" 
-        alt="Delete Card" onClick={() => props.toggleDeleteModal(carDetails._id)}/>
+        alt="Delete Card" onClick={() => props.toggleDeleteModal(carDetails.carId)}/>
       </div>
    
     </div>

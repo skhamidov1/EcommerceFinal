@@ -12,18 +12,18 @@ const contactInfoCard = props => {
           <li>{cardInfo.email}</li>
           <li>{cardInfo.phone}</li>
           <li>
-            <a onClick={() => props.toggleComments(cardInfo._id)}>
+            <a onClick={() => props.toggleComments(cardInfo.contactId)}>
               Show Comments
             </a>
           </li>
         </ul>
       </div>
-      <div id={cardInfo._id} className="info-card__overlay">
+      <div id={cardInfo.contactId} className="info-card__overlay">
         <div className="info-card__comments-modal">
           <p>{cardInfo.comments}</p>
           <button
             type="button"
-            onClick={() => props.toggleComments(cardInfo._id)}
+            onClick={() => props.toggleComments(cardInfo.contactId)}
           >
             Close
           </button>

@@ -11,13 +11,14 @@ const admin = props => {
     // Opens and Closes Edit Modal
     let editOverlay = document.querySelector(".edit-add-modal-overlay")
     editOverlay.style.display = editOverlay.style.display === "flex" ? "none" : "flex";
-    document.querySelector(".edit-add-modal-overlay").setAttribute("data-objectId", id)
+    document.querySelector(".edit-add-modal-overlay").setAttribute("data-objectid", id)
   };
 
   const toggleDeleteModal = id => {
     let deleteOverlay = document.querySelector(".delete-overlay")
     deleteOverlay.style.display = deleteOverlay.style.display === "flex" ? "none" : "flex";
     document.querySelector(".delete-overlay").setAttribute("data-objectid", id)
+
   };
 
   const toggleAddModal = () => {
@@ -30,7 +31,7 @@ const admin = props => {
     return (
       <AdminCard
         carDetails={car}
-        key={car._id}
+        key={car.carId}
         toggleEditModal={toggleEditModal}
         toggleDeleteModal={toggleDeleteModal}
         filterValueFunc={props.filterValFunc}
