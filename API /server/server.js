@@ -7,8 +7,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 app.use(
-  bodyParser.urlencoded({
-    //For contact form info
+  bodyParser.urlencoded({       //For contact form info
     extended: true
   })
 );
@@ -59,10 +58,10 @@ app.post("/inventory", (req, res) => {
     image
   } = req.body;
 
-  const insertQuery = `INSERT INTO Cars (name, description, price,rentPrice, engine, category, image)
+  const postQuery = `INSERT INTO Cars (name, description, price,rentPrice, engine, category, image)
         VALUES ("${name}","${description}","${price}","${rentPrice}","${engine}","${category}","${image}")`;
 
-  connection.query(insertQuery, (err, rows) => {
+  connection.query(postQuery, err => {
     if (err) throw err;
     res.status(200).redirect("http://localhost:3000/admin");
   });
@@ -77,10 +76,10 @@ app.post("/form_submission", (req, res) => {
       comments,
     } = req.body;
   
-    const insertQuery = `INSERT INTO UserContact (firstName, lastName, email, phone, comments)
-          VALUES ("${firstName}","${lastName}","${email}","${phone}","${comments}")`;
+    const postQuery = `INSERT INTO UserContact (firstName, lastName, email, phone, comments)
+    VALUES ("${firstName}","${lastName}","${email}","${phone}","${comments}")`;
   
-    connection.query(insertQuery, (err, rows) => {
+    connection.query(postQuery, (err, rows) => {
       if (err) throw err;
       res.status(200).redirect("http://localhost:3000/contact");
     });
@@ -88,9 +87,9 @@ app.post("/form_submission", (req, res) => {
 
 app.delete("/inventory/:id", (req, res) => {
   const id = req.params.id;
-  connection.query(`DELETE FROM UserContact WHERE carId = ${id}`, (err, rows) => {
+  connection.query(`DELETE FROM Cars WHERE carId = ${id}`, (err, rows) => {
     if (err) throw err;
-    res.status(200).send("One Row Deleted");
+    res.status(200).send(`Row With Id of ${id} Was Deleted`);
   });
 });
 
@@ -106,12 +105,13 @@ app.put("/inventory/:id", (req, res) => {
     image
   } = req.body;
   const insertQuery = `UPDATE Cars SET name = "${name}", description = "${description}", price = "${price}",
-      rentPrice = "${rentPrice}", engine = "${engine}", category = "${category}", image = "${image}" WHERE carId = ${id}`;
+      rentPrice = "${rentPrice}", engine = "${engine}", category = "${category}", image = "${image}"
+      WHERE carId = ${id}`;
 
-  connection.query(insertQuery, (err, rows) => {
+  connection.query(insertQuery, err => {
     if (err) throw err;
-    res.status(200).send("One Row Updated");
-  });
+    res.status(200).send(`Row With Id of ${id} Was Updated`);
+ });
 });
 
 app.listen(3306);

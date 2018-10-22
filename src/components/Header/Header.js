@@ -40,7 +40,7 @@ const header = props => {
         </ul>
 
         <img
-          onClick={props.closeMobileNav}
+          onClick={props.toggleMobileNav}
           src="../../../static/img/hamburger.svg"
           className="nav__hamburger"
           alt="Navigation"

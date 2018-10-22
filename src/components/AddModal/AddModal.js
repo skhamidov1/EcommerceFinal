@@ -42,7 +42,7 @@ const addModal = props => {
         <div className="edit-add-modal-buttons-wrap">
           <button
             type="button"
-            onClick={props.toggleAddModal}
+            onClick={() => props.toggleModal(null,"add-modal-overlay",null)}
             className="edit-add-modal-button edit-add-modal-button--color"
           >
             Cancel

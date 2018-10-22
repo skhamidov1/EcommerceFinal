@@ -7,24 +7,17 @@ import AddModal from "../AddModal/AddModal";
 
 const admin = props => {
 
-  const toggleEditModal = id => {
-    // Opens and Closes Edit Modal
-    let editOverlay = document.querySelector(".edit-add-modal-overlay")
-    editOverlay.style.display = editOverlay.style.display === "flex" ? "none" : "flex";
-    document.querySelector(".edit-add-modal-overlay").setAttribute("data-objectid", id)
-  };
-
-  const toggleDeleteModal = id => {
-    let deleteOverlay = document.querySelector(".delete-overlay")
-    deleteOverlay.style.display = deleteOverlay.style.display === "flex" ? "none" : "flex";
-    document.querySelector(".delete-overlay").setAttribute("data-objectid", id)
-
-  };
-
-  const toggleAddModal = () => {
-    // Opens and Closes Add Modal
-    let addOverlay = document.getElementById("add-modal-overlay")
-    addOverlay.style.display = addOverlay.style.display === "flex" ? "none" : "flex";
+  const toggleModal = (carId, Id, className) => {
+    if (className) {
+      let overlay = document.querySelector(className);
+      overlay.style.display =
+        overlay.style.display === "flex" ? "none" : "flex";
+      document.querySelector(className).setAttribute("data-objectid", carId);
+    } else if (Id) {
+      let overlay = document.getElementById(Id);
+      overlay.style.display =
+        overlay.style.display === "flex" ? "none" : "flex";
+    }
   };
 
   const card = props.cars.map(car => {
@@ -32,8 +25,7 @@ const admin = props => {
       <AdminCard
         carDetails={car}
         key={car.carId}
-        toggleEditModal={toggleEditModal}
-        toggleDeleteModal={toggleDeleteModal}
+        toggleModal={toggleModal}
         filterValueFunc={props.filterValFunc}
       />
     );
@@ -42,23 +34,31 @@ const admin = props => {
   return (
     <div>
       <DeleteModal
-      toggleDeleteModal={toggleDeleteModal}
-      deleteCarFunction={props.deleteCarFunc}
-      /> 
-      <EditModal filterValue={props.filterValue}
-      toggleEditModal={toggleEditModal}
+        toggleModal={toggleModal}
+        deleteCarFunction={props.deleteCarFunc}
       />
-      <AddModal toggleAddModal={toggleAddModal}/>
+      <EditModal
+        filterValue={props.filterValue}
+        toggleModal={toggleModal}
+      />
+      <AddModal
+        toggleModal={toggleModal}
+      />
       <div className="cards-wrap">
         <div className="cards-wrap__heading-wrap">
           <h1>Manage Inventory</h1>
           <div>
-            <button className="cards-wrap__heading-btn new-car-btn"
-            onClick={toggleAddModal}>Add New Car</button>
+            <button
+              className="cards-wrap__heading-btn new-car-btn"
+              onClick={() => toggleModal(null, "add-modal-overlay", null)}
+            >
+              Add New Car
+            </button>
             <Link
               to="/admin/contactInfo"
               role="button"
-              className="cards-wrap__heading-btn submissions-btn">
+              className="cards-wrap__heading-btn submissions-btn"
+            >
               Contact Submissions
             </Link>
           </div>

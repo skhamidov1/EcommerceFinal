@@ -1588,9 +1588,6 @@ table {
   height: 630px;
   position: fixed;
   box-shadow: 0px 0px 45px 0px rgba(0, 0, 0, 0.15); }
-  @media (max-width: 1170px) {
-    .edit-add-modal-form {
-      display: none; } }
   .edit-add-modal-form label {
     display: block;
     color: black;

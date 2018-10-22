@@ -15,12 +15,11 @@ const editModal = (props) => {
       image: editForm.elements[0].value,
       name: editForm.elements[1].value,
       category: editForm.elements[2].value,
-      rentPrice: editForm.elements[3].value,
-      price: editForm.elements[4].value,
+      rentPrice: Number(editForm.elements[3].value),
+      price: Number(editForm.elements[4].value),
       engine: editForm.elements[5].value,
       description: editForm.elements[6].value,
     }
-    console.log(putInfo)
     fetch(`http://localhost:3306/inventory/${id}`, {
       method: 'PUT',
       headers: {
@@ -83,7 +82,11 @@ const editModal = (props) => {
 
         <div className="edit-add-modal-buttons-wrap">
           <button type="button" className="edit-add-modal-button edit-add-modal-button--color"
-           onClick={props.toggleEditModal}
+           onClick={() => props.toggleModal(
+            null,
+            null,
+            ".edit-add-modal-overlay"
+          )}
           >Cancel</button>
           <button onClick={() => getPutInfo(getAttribute())}
            type="button" className="edit-add-modal-button">Update</button>

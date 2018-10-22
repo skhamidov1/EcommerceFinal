@@ -1,9 +1,8 @@
 import React from "react";
 
-
 const adminCard = props => {
-  const { carDetails } = props
-  
+  const { carDetails } = props;
+
   return (
     <div className="admin-card">
       <div className="admin-card__img-wrap">
@@ -18,16 +17,29 @@ const adminCard = props => {
       </div>
 
       <div className="admin-card__edit-delete-wrap">
-        <img src="/static/img/edit.svg" onClick={() => {props.toggleEditModal(carDetails.carId);
-          props.filterValueFunc(carDetails.carId)}} alt="Edit Card"/>
-        <img src="/static/img/delete.svg" className="admin-card__delete-btn" 
-        alt="Delete Card" onClick={() => props.toggleDeleteModal(carDetails.carId)}/>
+        <img
+          src="/static/img/edit.svg"
+          onClick={() => {
+            props.toggleModal(
+              carDetails.carId,
+              null,
+              ".edit-add-modal-overlay"
+            );
+            props.filterValueFunc(carDetails.carId);
+          }}
+          alt="Edit Card"
+        />
+        <img
+          src="/static/img/delete.svg"
+          className="admin-card__delete-btn"
+          alt="Delete Card"
+          onClick={() =>
+            props.toggleModal(carDetails.carId, null, ".delete-overlay")
+          }
+        />
       </div>
-   
     </div>
-    
   );
 };
-
 
 export default adminCard;

@@ -36,10 +36,11 @@ class App extends Component {
     // Adds a display property to the cars and filtered array to add description overlay
     let filteredCars = [];
     let normalCars = [];
+    let id = Number(e.target.dataset.id)
 
     if (this.state.filterArray.length > 0) {
       filteredCars = this.state.filterArray.map(car => {
-        return car.carId === e.target.dataset.id
+        return car.carId === id
           ? { ...car, display: !car.display }
           : car;
       });
@@ -49,10 +50,11 @@ class App extends Component {
       });
     } else {
       normalCars = this.state.cars.map(car => {
-        return car.carId === e.target.dataset.id
+        return car.carId === id
           ? { ...car, display: !car.display }
           : car;
       });
+
       this.setState({
         cars: normalCars
       });
@@ -115,7 +117,7 @@ class App extends Component {
     document.querySelector(".search-bar").value = "";
   };
 
-  openNav = () => { // opens mobile nav
+  toggleMobileNav = () => { // opens mobile nav
     let mobileNav = document.querySelector(".mobileNav");
 
     if (mobileNav.style.right === "-100vw") {
@@ -160,9 +162,9 @@ class App extends Component {
       <BrowserRouter>
 
         <div>
-          <Header closeMobileNav={this.openNav} />
+          <Header toggleMobileNav={this.toggleMobileNav} />
 
-          <MobileNav closeMobileNav={this.openNav} />
+          <MobileNav toggleMobileNav={this.toggleMobileNav} />
 
           <Switch>
             <Route exact path="/callback" component={Callback} />
@@ -171,7 +173,6 @@ class App extends Component {
 
             <Route path="/inventory" render={() => <Products cars={cars}
             showImageDescription = {this.showImageDescription}
-            modalShow = {this.state.showModal}
             searchBar = {this.searchBarHandler}
             showAllVehicles = {this.showAllVehicles}
             selectFilter = {this.filterSelect} /> }/>
