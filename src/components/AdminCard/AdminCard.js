@@ -20,11 +20,7 @@ const adminCard = props => {
         <img
           src="/static/img/edit.svg"
           onClick={() => {
-            props.toggleModal(
-              carDetails.carId,
-              null,
-              ".edit-add-modal-overlay"
-            );
+            props.toggleModal(carDetails.carId, "edit");
             props.filterValueFunc(carDetails.carId);
           }}
           alt="Edit Card"
@@ -33,9 +29,7 @@ const adminCard = props => {
           src="/static/img/delete.svg"
           className="admin-card__delete-btn"
           alt="Delete Card"
-          onClick={() =>
-            props.toggleModal(carDetails.carId, null, ".delete-overlay")
-          }
+          onClick={() => props.toggleModal(carDetails.carId, "del")}
         />
       </div>
     </div>

@@ -2,13 +2,12 @@ import React from "react";
 
 const deleteModal = props => {
   const getAttribute = () => {
-    return document
-      .querySelector(".delete-overlay")
-      .getAttribute("data-objectid");
+    const id = props.deleteModalRef.current.dataset.objectid;
+    return id;
   };
 
   return (
-    <div className="delete-overlay" data-objectid="">
+    <div className="delete-overlay" data-objectid="" ref={props.deleteModalRef}>
       <div className="delete-modal">
         <p className="delete-modal__question">
           Are You Sure You Want To Delete?
@@ -17,7 +16,7 @@ const deleteModal = props => {
           <button
             type="button"
             className="delete-modal__btn delete-modal__btn--no"
-            onClick={() => props.toggleModal(null, null, ".delete-overlay")}
+            onClick={() => props.toggleModal(null, "del")}
           >
             No
           </button>
@@ -26,7 +25,7 @@ const deleteModal = props => {
             className="delete-modal__btn delete-modal__btn--yes"
             onClick={() => {
               props.deleteCarFunction(getAttribute());
-              props.toggleModal(null, null, ".delete-overlay");
+              props.toggleModal(null, "del");
             }}
           >
             Yes

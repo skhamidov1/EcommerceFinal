@@ -1,10 +1,9 @@
 import React from "react";
 
 const editModal = (props) => {
-  // const { carDetails } = props
-
+  
   const getAttribute = () => {
-    const id = document.querySelector(".edit-add-modal-overlay").getAttribute("data-objectid")
+    const id = props.editModalRef.current.dataset.objectid
     return id
   }
 
@@ -31,12 +30,11 @@ const editModal = (props) => {
   }
   
   return (
-    <div className="edit-add-modal-overlay" data-objectid="">
+    <div className="edit-add-modal-overlay" data-objectid="" ref={props.editModalRef}>
       <form className="edit-add-modal-form" id="edit-modal-form">
         <div className="edit-add-modal-heading">
           <h2>Fill out the information to update car info</h2>
         </div>
-
         <div className="edit-add-modal-input-wrap">
           <label htmlFor="image">Img Url</label>
           <input type="text" defaultValue={(props.filterValue.length > 0) ?
@@ -82,11 +80,7 @@ const editModal = (props) => {
 
         <div className="edit-add-modal-buttons-wrap">
           <button type="button" className="edit-add-modal-button edit-add-modal-button--color"
-           onClick={() => props.toggleModal(
-            null,
-            null,
-            ".edit-add-modal-overlay"
-          )}
+           onClick={() => props.toggleModal(null, "edit")}
           >Cancel</button>
           <button onClick={() => getPutInfo(getAttribute())}
            type="button" className="edit-add-modal-button">Update</button>

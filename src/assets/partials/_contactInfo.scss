@@ -26,17 +26,15 @@
     justify-content: center;
   }
   &__back-link {
-    border: 1px solid black;
-    color: black;
+    color: white;
     padding: 10px;
+    background: #6686b7;
     @include buttonStyle;
     @include boxShadow;
     text-decoration: none;
     width: 150px;
     &:hover {
-      background: #00b300;
-      color: white;
-      border: 1px solid #00b300;
+      background: #475d80;
     }
   }
 }
