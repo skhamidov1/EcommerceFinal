@@ -629,6 +629,7 @@ table {
   .mobileNav__auth {
     color: white;
     background: #00b300;
+    border: none;
     height: 35px;
     width: 100px;
     margin: 20px auto;
@@ -1157,8 +1158,8 @@ table {
       letter-spacing: 2px;
       border: 1px solid black;
       width: 350px;
-      box-shadow: 0px 0px 45px 0px rgba(0, 0, 0, 0.15);
-      height: 35px; }
+      height: 35px;
+      padding-left: 10px; }
       @media (max-width: 400px) {
         .products-header > form > .search-bar {
           width: 315px; } }
@@ -1170,8 +1171,7 @@ table {
       width: 35px;
       height: 35px;
       background: url("/static/img/search.svg") no-repeat center/25px;
-      background-color: rgba(0, 0, 0, 0.8);
-      box-shadow: 0px 0px 45px 0px rgba(0, 0, 0, 0.15); }
+      background-color: rgba(0, 0, 0, 0.8); }
     .products-header > form ::placeholder {
       color: black;
       font: 400 16px "Quicksand"; }
@@ -1228,6 +1228,7 @@ table {
       text-transform: uppercase;
       color: #ce2d28;
       border: 1px solid #ce2d28;
+      background: white;
       width: 150px;
       height: 40px;
       cursor: pointer;
@@ -1388,6 +1389,7 @@ table {
     margin: 0 5px;
     color: white;
     background: #6686b7;
+    border: none;
     padding: 10px;
     border-radius: 50px;
     font: 400 16px "Quicksand";
