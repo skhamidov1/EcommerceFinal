@@ -7,7 +7,7 @@ class Auth {
       domain: 'royalrentals.auth0.com',
       audience: 'https://royalrentals.auth0.com/userinfo',
       clientID: 'kbBcFUSbVZIhqRJCX8krVH9TxlTu640g',
-      redirectUri: 'http://localhost:3000/callback',
+      redirectUri: 'https://royalrentals.herokuapp.com/callback',
       responseType: 'token id_token',
       scope: 'openid profile'
     });

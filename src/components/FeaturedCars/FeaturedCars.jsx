@@ -26,7 +26,7 @@ class featuredCars extends Component {
             <img src="static/img/zr1.jpg" alt="" />
           </div>
           <div>
-            <img src="static/img/r8.jpg" alt="" />
+            <img src="static/img/R8.jpg" alt="" />
           </div>
           <div>
             <img src="static/img/gtrNismo.jpg" alt="" />

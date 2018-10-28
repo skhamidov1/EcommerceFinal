@@ -114,4 +114,4 @@ app.put("/inventory/:id", (req, res) => {
  });
 });
 
-app.listen(3306);
+app.listen(3306, skhamidov.road2hire.ninja);
