@@ -23,11 +23,11 @@ class App extends Component {
 
   componentDidMount() {
     
-    fetch("http://localhost:3306/inventory")
+    fetch("https://sk-sqlapi.herokuapp.com/inventory")
       .then(response => response.json())
       .then(json => this.setState({cars: json}));
 
-    fetch("http://localhost:3306/form_submission")
+    fetch("https://sk-sqlapi.herokuapp.com/form_submission")
       .then(response => response.json())
       .then(json => this.setState({contactInfo: json}));
   }
@@ -131,7 +131,7 @@ class App extends Component {
     // array in state with spliced one
     let newCars = [...this.state.cars]
 
-    fetch(`http://localhost:3306/inventory/${id}`, {
+    fetch(`https://sk-sqlapi.herokuapp.com/inventory/${id}`, {
       method: "delete"
     })
     let index = newCars.findIndex(x => x.carId === Number(id));

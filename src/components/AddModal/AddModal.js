@@ -5,7 +5,7 @@ const addModal = props => {
     <div className="edit-add-modal-overlay" ref={props.addModalRef}>
       <form
         method="post"
-        action="http://localhost:3306/inventory"
+        action="https://sk-sqlapi.herokuapp.com/inventory"
         className="edit-add-modal-form"
       >
         <div className="edit-add-modal-heading">

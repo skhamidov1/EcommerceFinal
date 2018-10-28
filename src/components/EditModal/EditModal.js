@@ -19,7 +19,7 @@ const editModal = (props) => {
       engine: editForm.elements[5].value,
       description: editForm.elements[6].value,
     }
-    fetch(`http://localhost:3306/inventory/${id}`, {
+    fetch(`https://sk-sqlapi.herokuapp.com/inventory/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
