@@ -114,4 +114,7 @@ app.put("/inventory/:id", (req, res) => {
  });
 });
 
-app.listen(3306, skhamidov.road2hire.ninja);
+const PORT = process.env.PORT || 3001;
+app.listen(PORT, () => {
+    console.log(`Our app is running on port ${ PORT }`);
+});
