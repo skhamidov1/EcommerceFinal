@@ -455,6 +455,9 @@ table {
   align-items: center;
   flex-direction: column;
   margin-top: 90px; }
+  @media (min-width: 1600px) {
+    .hero {
+      background-position: center; } }
   .hero__overlay {
     top: 0;
     position: absolute;
@@ -476,26 +479,16 @@ table {
     letter-spacing: 3px;
     margin: 0;
     text-transform: uppercase;
-    z-index: 2; }
-    @media (max-width: 768px) {
-      .hero > h1 {
-        text-align: center; } }
-    @media (max-width: 400px) {
-      .hero > h1 {
-        text-align: center; } }
+    z-index: 2;
+    text-align: center; }
   .hero > p {
     color: white;
     margin-top: 10px;
     font: 400 16px "Quicksand";
     text-transform: uppercase;
+    text-align: center;
     letter-spacing: 1px;
     z-index: 2; }
-    @media (max-width: 768px) {
-      .hero > p {
-        text-align: center; } }
-    @media (max-width: 400px) {
-      .hero > p {
-        text-align: center; } }
   .hero > a {
     font: 400 16px "Quicksand";
     letter-spacing: 1px;

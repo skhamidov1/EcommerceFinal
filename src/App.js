@@ -147,6 +147,32 @@ class App extends Component {
     let newInput = selection.filter(input => input.carId === id)
     this.setState({filterValue: newInput})
   }
+  getPutInfo = (id) => {
+    const editForm = document.getElementById("edit-modal-form")
+
+    const putInfo = {
+      image: editForm.elements[0].value,
+      name: editForm.elements[1].value,
+      category: editForm.elements[2].value,
+      rentPrice: Number(editForm.elements[3].value),
+      price: Number(editForm.elements[4].value),
+      engine: editForm.elements[5].value,
+      description: editForm.elements[6].value,
+    }
+    fetch(`https://sk-sqlapi.herokuapp.com/inventory/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(putInfo)
+    }).then(res => console.log(res));
+    console.log(putInfo)
+    // window.location.reload();
+    let carsTemp = [...this.state.cars]
+    let index = carsTemp.findIndex(object => object.carId === id);
+    carsTemp[index] = putInfo
+    this.setState({cars: carsTemp})
+  }
 
   render() {
    
@@ -184,7 +210,7 @@ class App extends Component {
 
             <SecuredRoute exact path='/admin' component={Admin}   // Products 
             cars={cars} filterValue={this.state.filterValue} filteredValFunc={this.filterInputValues}
-            deleteCarFunc={this.deleteCar}/>
+            deleteCarFunc={this.deleteCar} getPutInfo={this.getPutInfo}/>
           </Switch>
 
           <Footer />

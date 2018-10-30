@@ -51,6 +51,7 @@ class Admin extends Component {
           filterValue={this.props.filterValue}
           toggleModal={this.toggleModal}
           editModalRef={this.editModalRef}
+          getPutInfo={this.props.getPutInfo}
         />
         <AddModal
           toggleModal={this.toggleModal}

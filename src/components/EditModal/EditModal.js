@@ -6,28 +6,6 @@ const editModal = (props) => {
     const id = props.editModalRef.current.dataset.objectid
     return id
   }
-
-  const getPutInfo = (id) => {
-    const editForm = document.getElementById("edit-modal-form")
-
-    const putInfo = {
-      image: editForm.elements[0].value,
-      name: editForm.elements[1].value,
-      category: editForm.elements[2].value,
-      rentPrice: Number(editForm.elements[3].value),
-      price: Number(editForm.elements[4].value),
-      engine: editForm.elements[5].value,
-      description: editForm.elements[6].value,
-    }
-    fetch(`https://sk-sqlapi.herokuapp.com/inventory/${id}`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(putInfo)
-    }).then(res => console.log(res));
-    window.location.reload();
-  }
   
   return (
     <div className="edit-add-modal-overlay" data-objectid="" ref={props.editModalRef}>
@@ -82,7 +60,7 @@ const editModal = (props) => {
           <button type="button" className="edit-add-modal-button edit-add-modal-button--color"
            onClick={() => props.toggleModal(null, "edit")}
           >Cancel</button>
-          <button onClick={() => getPutInfo(getAttribute())}
+          <button onClick={() => props.getPutInfo(getAttribute())}
            type="button" className="edit-add-modal-button">Update</button>
         </div>
       </form>
