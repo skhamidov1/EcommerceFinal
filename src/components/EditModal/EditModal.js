@@ -61,7 +61,9 @@ const editModal = (props) => {
            onClick={() => props.toggleModal(null, "edit")}
           >Cancel</button>
           <button 
-           type="submit" className="edit-add-modal-button">Update</button>
+           type="submit" className="edit-add-modal-button"
+           onClick={() => props.toggleModal(null, "edit")}
+           >Update</button>
         </div>
       </form>
     </div>
