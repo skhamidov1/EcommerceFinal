@@ -7,7 +7,7 @@ class Auth {
       domain: 'royalrentals.auth0.com',
       audience: 'https://royalrentals.auth0.com/userinfo',
       clientID: 'kbBcFUSbVZIhqRJCX8krVH9TxlTu640g',
-      redirectUri: 'https://royalrentals.netlify.com/callback',
+      redirectUri: 'http://localhost:3000/callback',
       responseType: 'token id_token',
       scope: 'openid profile'
     });

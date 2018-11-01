@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 
 class Contact extends Component {
-
   render() {
     return (
       <main>
@@ -17,37 +16,36 @@ class Contact extends Component {
 
           <form
             method="post"
-            action="http://localhost:3306/form_submission"
-            className="form-wrap__form">
-
+            action="https://sk-sqlapi.herokuapp.com/form_submission"
+            className="form-wrap__form"
+          >
             <div className="form-wrap__name-wrap">
               <div className="form-wrap__firstName-wrap">
                 <label htmlFor="firstName">First Name</label>
-                <input type="text" name="firstName" id="firstName" />
+                <input type="text" name="firstName" id="firstName" required />
               </div>
 
               <div className="form-wrap__lastName-wrap">
                 <label htmlFor="lastName">Last Name</label>
-                <input type="text" name="lastName" id="lastName" />
+                <input type="text" name="lastName" id="lastName" required />
               </div>
             </div>
 
             <div className="form-wrap__input-wrap">
               <label htmlFor="email">Email</label>
-              <input type="email" name="email" id="email" />
+              <input type="email" name="email" id="email" required />
             </div>
 
             <div className="form-wrap__input-wrap">
               <label htmlFor="phone">Phone</label>
-              <input type="phone" name="phone" id="phone" />
+              <input type="tel" name="phone" id="phone" required />
             </div>
 
             <div className="form-wrap__input-wrap">
               <label htmlFor="comments">Comments</label>
-              <textarea id="comments" name="comments" />
+              <textarea id="comments" name="comments" required />
             </div>
-            <input aria-label="submit form" type="submit" className="submit" />
-            
+            <input aria-label="submit form" type="submit" className="submit" value="Submit" />
           </form>
         </div>
         <div className="contact-bottom-caption">

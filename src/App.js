@@ -147,10 +147,12 @@ class App extends Component {
     let newInput = selection.filter(input => input.carId === id)
     this.setState({filterValue: newInput})
   }
-  getPutInfo = (id) => {
+  getPutInfo = (e,id) => {
+    e.preventDefault()
     const editForm = document.getElementById("edit-modal-form")
 
     const putInfo = {
+      carId: Number(id),
       image: editForm.elements[0].value,
       name: editForm.elements[1].value,
       category: editForm.elements[2].value,
@@ -165,13 +167,11 @@ class App extends Component {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(putInfo)
-    }).then(res => console.log(res));
-    console.log(putInfo)
-    // window.location.reload();
-    let carsTemp = [...this.state.cars]
-    let index = carsTemp.findIndex(object => object.carId === id);
-    carsTemp[index] = putInfo
-    this.setState({cars: carsTemp})
+    })
+      let carsTemp = [...this.state.cars]
+      let index = carsTemp.findIndex(object => object.carId === Number(id));
+      carsTemp[index] = putInfo
+      this.setState({cars: carsTemp}, () => console.log(this.state.cars))
   }
 
   render() {
