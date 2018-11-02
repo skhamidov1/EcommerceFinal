@@ -9,7 +9,10 @@ const editModal = (props) => {
   
   return (
     <div className="edit-add-modal-overlay" data-objectid="" ref={props.editModalRef}>
-      <form className="edit-add-modal-form" id="edit-modal-form" onSubmit={(e) => props.getPutInfo(e,getAttribute())}>
+      <form className="edit-add-modal-form" id="edit-modal-form" onSubmit={(e) => {
+          props.getPutInfo(e,getAttribute())
+          props.toggleModal(null, "edit")
+      }}>
         <div className="edit-add-modal-heading">
           <h2>Fill out the information to update car info</h2>
         </div>
@@ -62,7 +65,6 @@ const editModal = (props) => {
           >Cancel</button>
           <button 
            type="submit" className="edit-add-modal-button"
-           onClick={() => props.toggleModal(null, "edit")}
            >Update</button>
         </div>
       </form>

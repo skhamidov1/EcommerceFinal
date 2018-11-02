@@ -33,6 +33,7 @@
     @include boxShadow;
     text-decoration: none;
     width: 150px;
+    border-radius: 50px;
     &:hover {
       background: #475d80;
     }

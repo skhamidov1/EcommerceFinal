@@ -144,8 +144,9 @@ class App extends Component {
 
   filterInputValues = (id) => {   // contains the object with the information based on the car user clicks on 
     let selection = [...this.state.cars]
+    console.log(typeof id)
     let newInput = selection.filter(input => input.carId === id)
-    this.setState({filterValue: newInput})
+    this.setState({filterValue: newInput}, () => console.log(this.state.filterValue))
   }
   getPutInfo = (e,id) => {
     e.preventDefault()
