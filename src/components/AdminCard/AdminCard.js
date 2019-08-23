@@ -1,9 +1,8 @@
 import React from "react";
 
-
 const adminCard = props => {
-  const { carDetails } = props
-  
+  const { carDetails } = props;
+
   return (
     <div className="admin-card">
       <div className="admin-card__img-wrap">
@@ -14,20 +13,27 @@ const adminCard = props => {
         <p className="name-align">{carDetails.name}</p>
         <p>{carDetails.category}</p>
         <p>$ {carDetails.rentPrice.toLocaleString("en")} </p>
-        <p className="admin-card__id"> {carDetails._id}</p>
+        <p className="admin-card__id"> {carDetails.carId}</p>
       </div>
 
       <div className="admin-card__edit-delete-wrap">
-        <img src="/static/img/edit.svg" onClick={() => {props.toggleEditModal(carDetails._id);
-          props.filterValueFunc(carDetails._id)}} alt="Edit Card"/>
-        <img src="/static/img/delete.svg" className="admin-card__delete-btn" 
-        alt="Delete Card" onClick={() => props.toggleDeleteModal(carDetails._id)}/>
+        <img
+          src="/static/img/edit.svg"
+          onClick={() => {
+            props.toggleModal(carDetails.carId, "edit");
+            props.filterValueFunc(carDetails.carId);
+          }}
+          alt="Edit Card"
+        />
+        <img
+          src="/static/img/delete.svg"
+          className="admin-card__delete-btn"
+          alt="Delete Card"
+          onClick={() => props.toggleModal(carDetails.carId, "del")}
+        />
       </div>
-   
     </div>
-    
   );
 };
-
 
 export default adminCard;

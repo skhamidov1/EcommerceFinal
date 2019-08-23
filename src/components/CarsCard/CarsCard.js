@@ -20,7 +20,7 @@ const card = props => {
         <button
           className="card-button"
           onClick={props.showImageDescription}
-          data-id={car._id}
+          data-id={car.carId}
         >
           Description
         </button>

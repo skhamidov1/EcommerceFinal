@@ -20,9 +20,6 @@
   height: 630px;
   position: fixed;
   @include boxShadow();
-  @media (max-width: 1170px) {
-    display: none;
-  }
 
   label {
     display: block;

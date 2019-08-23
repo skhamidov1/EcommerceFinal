@@ -5,6 +5,9 @@
   @include centerItems();
   flex-direction: column;
   margin-top: 90px;
+  @media (min-width: 1600px) {
+    background-position: center;
+  }
 
   &__overlay {
     top: 0;
@@ -28,26 +31,16 @@
     margin: 0;
     text-transform: uppercase;
     z-index: 2;
-    @media (max-width: 768px) {
-      text-align: center;
-    }
-    @media (max-width: 400px) {
-      text-align: center;
-    }
+    text-align: center;
   }
   > p {
     color: white;
     margin-top: 10px;
     font: 400 16px "Quicksand";
     text-transform: uppercase;
+    text-align: center;
     letter-spacing: 1px;
     z-index: 2;
-    @media (max-width: 768px) {
-      text-align: center;
-    }
-    @media (max-width: 400px) {
-      text-align: center;
-    }
   }
   > a {
     @include buttonStyle();

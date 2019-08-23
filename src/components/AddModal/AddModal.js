@@ -2,10 +2,10 @@ import React from "react";
 
 const addModal = props => {
   return (
-    <div className="edit-add-modal-overlay" id="add-modal-overlay">
+    <div className="edit-add-modal-overlay" ref={props.addModalRef}>
       <form
         method="post"
-        action="http://localhost:3001/inventory"
+        action="https://sk-sqlapi.herokuapp.com/inventory"
         className="edit-add-modal-form"
       >
         <div className="edit-add-modal-heading">
@@ -42,7 +42,7 @@ const addModal = props => {
         <div className="edit-add-modal-buttons-wrap">
           <button
             type="button"
-            onClick={props.toggleAddModal}
+            onClick={() => props.toggleModal(null,"add")}
             className="edit-add-modal-button edit-add-modal-button--color"
           >
             Cancel

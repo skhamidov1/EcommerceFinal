@@ -23,11 +23,11 @@ class App extends Component {
 
   componentDidMount() {
     
-    fetch("http://localhost:3001/inventory")
+    fetch("https://sk-sqlapi.herokuapp.com/inventory")
       .then(response => response.json())
       .then(json => this.setState({cars: json}));
 
-    fetch("http://localhost:3001/form_submission")
+    fetch("https://sk-sqlapi.herokuapp.com/form_submission")
       .then(response => response.json())
       .then(json => this.setState({contactInfo: json}));
   }
@@ -36,10 +36,11 @@ class App extends Component {
     // Adds a display property to the cars and filtered array to add description overlay
     let filteredCars = [];
     let normalCars = [];
+    let id = Number(e.target.dataset.id)
 
     if (this.state.filterArray.length > 0) {
       filteredCars = this.state.filterArray.map(car => {
-        return car._id === e.target.dataset.id
+        return car.carId === id
           ? { ...car, display: !car.display }
           : car;
       });
@@ -49,10 +50,11 @@ class App extends Component {
       });
     } else {
       normalCars = this.state.cars.map(car => {
-        return car._id === e.target.dataset.id
+        return car.carId === id
           ? { ...car, display: !car.display }
           : car;
       });
+
       this.setState({
         cars: normalCars
       });
@@ -115,7 +117,7 @@ class App extends Component {
     document.querySelector(".search-bar").value = "";
   };
 
-  openNav = () => { // opens mobile nav
+  toggleMobileNav = () => { // opens mobile nav
     let mobileNav = document.querySelector(".mobileNav");
 
     if (mobileNav.style.right === "-100vw") {
@@ -129,10 +131,10 @@ class App extends Component {
     // array in state with spliced one
     let newCars = [...this.state.cars]
 
-    fetch(`http://localhost:3001/inventory/${id}`, {
+    fetch(`https://sk-sqlapi.herokuapp.com/inventory/${id}`, {
       method: "delete"
     })
-    let index = newCars.findIndex(x => x._id === id);
+    let index = newCars.findIndex(x => x.carId === Number(id));
     newCars.splice(index, 1)
 
     this.setState({
@@ -142,11 +144,39 @@ class App extends Component {
 
   filterInputValues = (id) => {   // contains the object with the information based on the car user clicks on 
     let selection = [...this.state.cars]
-    let newInput = selection.filter(input => input._id === id)
-    this.setState({filterValue: newInput})
+    console.log(typeof id)
+    let newInput = selection.filter(input => input.carId === id)
+    this.setState({filterValue: newInput}, () => console.log(this.state.filterValue))
+  }
+  getPutInfo = (e,id) => {
+    e.preventDefault()
+    const editForm = document.getElementById("edit-modal-form")
+
+    const putInfo = {
+      carId: Number(id),
+      image: editForm.elements[0].value,
+      name: editForm.elements[1].value,
+      category: editForm.elements[2].value,
+      rentPrice: Number(editForm.elements[3].value),
+      price: Number(editForm.elements[4].value),
+      engine: editForm.elements[5].value,
+      description: editForm.elements[6].value,
+    }
+    fetch(`https://sk-sqlapi.herokuapp.com/inventory/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(putInfo)
+    })
+      let carsTemp = [...this.state.cars]
+      let index = carsTemp.findIndex(object => object.carId === Number(id));
+      carsTemp[index] = putInfo
+      this.setState({cars: carsTemp}, () => console.log(this.state.cars))
   }
 
   render() {
+   
     let cars = [];
 
     if (this.state.filterArray.length > 0) {
@@ -159,9 +189,9 @@ class App extends Component {
       <BrowserRouter>
 
         <div>
-          <Header closeMobileNav={this.openNav} />
+          <Header toggleMobileNav={this.toggleMobileNav} />
 
-          <MobileNav closeMobileNav={this.openNav} />
+          <MobileNav toggleMobileNav={this.toggleMobileNav} />
 
           <Switch>
             <Route exact path="/callback" component={Callback} />
@@ -170,7 +200,6 @@ class App extends Component {
 
             <Route path="/inventory" render={() => <Products cars={cars}
             showImageDescription = {this.showImageDescription}
-            modalShow = {this.state.showModal}
             searchBar = {this.searchBarHandler}
             showAllVehicles = {this.showAllVehicles}
             selectFilter = {this.filterSelect} /> }/>
@@ -182,7 +211,7 @@ class App extends Component {
 
             <SecuredRoute exact path='/admin' component={Admin}   // Products 
             cars={cars} filterValue={this.state.filterValue} filteredValFunc={this.filterInputValues}
-            deleteCarFunc={this.deleteCar}/>
+            deleteCarFunc={this.deleteCar} getPutInfo={this.getPutInfo}/>
           </Switch>
 
           <Footer />

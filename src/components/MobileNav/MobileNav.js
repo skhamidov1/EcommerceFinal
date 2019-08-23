@@ -7,23 +7,23 @@ const mobileNav = props => {
     <nav className="mobileNav" style={{ right: "-100vw" }}>
       <ul className="mobileNav__unord-list">
         <li className="mobileNav__list-item">
-          <Link onClick={props.closeMobileNav} to="/">
+          <Link onClick={props.toggleMobileNav} to="/">
             Home
           </Link>
         </li>
         <li className="mobileNav__list-item">
-          <Link onClick={props.closeMobileNav} to="/inventory">
+          <Link onClick={props.toggleMobileNav} to="/inventory">
             Inventory
           </Link>
         </li>
         <li className="mobileNav__list-item">
-          <Link onClick={props.closeMobileNav} to="/contact">
+          <Link onClick={props.toggleMobileNav} to="/contact">
             Contact
           </Link>
         </li>
         {auth0Client.isAuthenticated() ? (
           <li className="mobileNav__list-item">
-            <Link to="/admin">Admin</Link>
+            <Link onClick={props.toggleMobileNav} to="/admin">Admin</Link>
           </li>
         ) : null}
       </ul>

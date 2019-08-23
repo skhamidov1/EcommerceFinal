@@ -455,6 +455,9 @@ table {
   align-items: center;
   flex-direction: column;
   margin-top: 90px; }
+  @media (min-width: 1600px) {
+    .hero {
+      background-position: center; } }
   .hero__overlay {
     top: 0;
     position: absolute;
@@ -476,26 +479,16 @@ table {
     letter-spacing: 3px;
     margin: 0;
     text-transform: uppercase;
-    z-index: 2; }
-    @media (max-width: 768px) {
-      .hero > h1 {
-        text-align: center; } }
-    @media (max-width: 400px) {
-      .hero > h1 {
-        text-align: center; } }
+    z-index: 2;
+    text-align: center; }
   .hero > p {
     color: white;
     margin-top: 10px;
     font: 400 16px "Quicksand";
     text-transform: uppercase;
+    text-align: center;
     letter-spacing: 1px;
     z-index: 2; }
-    @media (max-width: 768px) {
-      .hero > p {
-        text-align: center; } }
-    @media (max-width: 400px) {
-      .hero > p {
-        text-align: center; } }
   .hero > a {
     font: 400 16px "Quicksand";
     letter-spacing: 1px;
@@ -562,7 +555,8 @@ table {
       color: white;
       font: 400 18px "Quicksand";
       text-transform: uppercase;
-      letter-spacing: 1px; }
+      letter-spacing: 1px;
+      outline: none; }
       .nav__list-item > a::after {
         content: "";
         display: block;
@@ -628,6 +622,7 @@ table {
   .mobileNav__auth {
     color: white;
     background: #00b300;
+    border: none;
     height: 35px;
     width: 100px;
     margin: 20px auto;
@@ -915,98 +910,23 @@ table {
           text-align: center; } }
 
 .feat-cars-wrap {
-  width: 100%;
-  min-height: 300px;
-  text-align: center;
-  background: white;
-  margin: 0 auto;
-  padding: 20px;
-  position: relative;
-  margin: 0 0 10px; }
-  @media (max-width: 400px) {
-    .feat-cars-wrap {
-      padding: 0; } }
+  margin: 0 0 40px; }
   .feat-cars-wrap > h2 {
-    margin: 0 0 10px;
+    margin: 20px 0px;
+    text-align: center;
     text-transform: uppercase;
-    padding-bottom: 10px;
     font: 400 35px "Quicksand"; }
-  .feat-cars-wrap__row {
-    display: flex;
-    justify-content: space-around;
-    max-width: 900px;
-    margin: 0 auto; }
-    @media (max-width: 1200px) {
-      .feat-cars-wrap__row {
-        flex-direction: column;
-        align-items: center; } }
-    @media (max-width: 400px) {
-      .feat-cars-wrap__row {
-        height: 400px;
-        width: 400px; } }
-  .feat-cars-wrap__img-wrap {
+  .feat-cars-wrap div {
     width: 400px;
-    height: 225px; }
-    @media (max-width: 1200px) {
-      .feat-cars-wrap__img-wrap {
-        margin-bottom: 40px; } }
-    @media (max-width: 768px) {
-      .feat-cars-wrap__img-wrap {
-        margin-bottom: 40px;
-        max-width: 350px;
-        max-height: 200px; } }
-    @media (max-width: 400px) {
-      .feat-cars-wrap__img-wrap {
-        max-width: 300px;
-        max-height: 180px; } }
-    .feat-cars-wrap__img-wrap > img {
+    height: 225px;
+    margin: 0 auto; }
+    @media (min-width: 768px) {
+      .feat-cars-wrap div {
+        width: 675px;
+        height: 350px; } }
+    .feat-cars-wrap div img {
       width: 100%;
       height: 100%; }
-
-.prevButton,
-.nextButton {
-  width: 35px;
-  height: 35px;
-  border: none;
-  padding: 0;
-  background: white url("/static/img/arrow.svg") no-repeat center/contain;
-  position: absolute; }
-  @media (max-width: 400px) {
-    .prevButton,
-    .nextButton {
-      width: 25px;
-      height: 25px; } }
-
-.prevButton {
-  transform: rotate(180deg);
-  left: 10%;
-  top: 55%; }
-  @media (max-width: 1200px) {
-    .prevButton {
-      top: 49%; } }
-  @media (max-width: 768px) {
-    .prevButton {
-      left: 10px; } }
-  @media (max-width: 400px) {
-    .prevButton {
-      display: block;
-      left: 2%;
-      top: 50%; } }
-
-.nextButton {
-  right: 10%;
-  top: 55%; }
-  @media (max-width: 1200px) {
-    .nextButton {
-      top: 49%; } }
-  @media (max-width: 768px) {
-    .nextButton {
-      right: 10px; } }
-  @media (max-width: 400px) {
-    .nextButton {
-      display: block;
-      right: 2%;
-      top: 50%; } }
 
 .contact-hero {
   height: 525px;
@@ -1231,8 +1151,8 @@ table {
       letter-spacing: 2px;
       border: 1px solid black;
       width: 350px;
-      box-shadow: 0px 0px 45px 0px rgba(0, 0, 0, 0.15);
-      height: 35px; }
+      height: 35px;
+      padding-left: 10px; }
       @media (max-width: 400px) {
         .products-header > form > .search-bar {
           width: 315px; } }
@@ -1244,8 +1164,7 @@ table {
       width: 35px;
       height: 35px;
       background: url("/static/img/search.svg") no-repeat center/25px;
-      background-color: rgba(0, 0, 0, 0.8);
-      box-shadow: 0px 0px 45px 0px rgba(0, 0, 0, 0.15); }
+      background-color: rgba(0, 0, 0, 0.8); }
     .products-header > form ::placeholder {
       color: black;
       font: 400 16px "Quicksand"; }
@@ -1302,6 +1221,7 @@ table {
       text-transform: uppercase;
       color: #ce2d28;
       border: 1px solid #ce2d28;
+      background: white;
       width: 150px;
       height: 40px;
       cursor: pointer;
@@ -1460,18 +1380,18 @@ table {
           font-size: 40px; } }
   .cards-wrap__heading-btn {
     margin: 0 5px;
-    border: 1px solid black;
-    color: black;
+    color: white;
+    background: #6686b7;
+    border: none;
     padding: 10px;
+    border-radius: 50px;
     font: 400 16px "Quicksand";
     letter-spacing: 1px;
     text-align: center;
     text-transform: uppercase;
     box-shadow: 0px 0px 45px 0px rgba(0, 0, 0, 0.15); }
     .cards-wrap__heading-btn:hover {
-      background: #00b300;
-      color: white;
-      border: 1px solid #00b300; }
+      background: #475d80; }
   .cards-wrap .new-car-btn {
     width: 150px; }
   .cards-wrap .submissions-btn {
@@ -1588,9 +1508,6 @@ table {
   height: 630px;
   position: fixed;
   box-shadow: 0px 0px 45px 0px rgba(0, 0, 0, 0.15); }
-  @media (max-width: 1170px) {
-    .edit-add-modal-form {
-      display: none; } }
   .edit-add-modal-form label {
     display: block;
     color: black;
@@ -1700,9 +1617,9 @@ table {
     display: flex;
     justify-content: center; }
   .contact-info__back-link {
-    border: 1px solid black;
-    color: black;
+    color: white;
     padding: 10px;
+    background: #6686b7;
     font: 400 16px "Quicksand";
     letter-spacing: 1px;
     text-align: center;
@@ -1711,9 +1628,7 @@ table {
     text-decoration: none;
     width: 150px; }
     .contact-info__back-link:hover {
-      background: #00b300;
-      color: white;
-      border: 1px solid #00b300; }
+      background: #475d80; }
 
 .info-card-wrap {
   width: 100%; }

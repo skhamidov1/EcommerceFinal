@@ -14,7 +14,7 @@ const footer = () => {
           <div>
             <label htmlFor="email">Email</label>
             <input type="email" name="email" id="email" />
-            <input type="submit" />
+            <input type="submit" value="Submit"/>
           </div>
         </form>
         <div className="footer__icon-wrap">

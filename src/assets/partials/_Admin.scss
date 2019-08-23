@@ -29,15 +29,15 @@
   }
   &__heading-btn {
     margin: 0 5px;
-    border: 1px solid black;
-    color: black;
+    color: white;
+    background: #6686b7;
+    border: none;
     padding: 10px;
+    border-radius: 50px;
     @include buttonStyle;
     @include boxShadow;
     &:hover {
-      background: #00b300;
-      color: white;
-      border: 1px solid #00b300;
+      background: #475d80;
     }
   }
   .new-car-btn {
